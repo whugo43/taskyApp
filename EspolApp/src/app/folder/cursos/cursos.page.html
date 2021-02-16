@@ -1,0 +1,63 @@
+<ion-header >
+  <ion-toolbar>
+
+    <ion-segment color="tertiary" value="cursos" >
+ 
+      <!-- <ion-segment-button *ngIf="Rol==Ayudante" value="mis-ayudantias" [routerLink]="['/mis-ayudantias']" routerDirection="root">
+        <ion-icon name="file-tray-stacked-outline" size="large"></ion-icon> 
+        <ion-label style="font-size: 14;">Mis Cursos</ion-label>
+      </ion-segment-button> -->
+
+      <ion-segment-button value="publicaciones" [routerLink]="['/publicaciones']" routerDirection="root">
+        <ion-icon name="newspaper-outline" size="large"></ion-icon> 
+        <ion-label style="font-size: 14;">Publicaciones</ion-label>
+      </ion-segment-button>
+      
+      <ion-segment-button value="cursos" [routerLink]="['/cursos']" routerDirection="root">
+        <ion-icon name="library-outline" size="large"></ion-icon> <ion-label style="font-size: 14px;">Cursos</ion-label>
+      </ion-segment-button>
+    
+    
+      <ion-segment-button value="perfil" [routerLink]="['/perfil']" routerDirection="root">
+        <ion-icon name="person-circle-outline" size="large"></ion-icon> <ion-label style="font-size: 12px;">Perfil</ion-label>
+      </ion-segment-button>
+
+  
+
+  
+
+</ion-segment>
+
+</ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar
+    color="light" 
+    placeholder = "Buscar curso..."
+    animated
+
+    (ionChange)="buscar($event)">
+    </ion-searchbar>
+
+  <ion-card *ngFor="let curso of cursos | filtroCurso: textoBuscar" scrollable class = "item">
+    <ion-item [routerLink]="['/curso-detalle',curso.id, curso.Nombre]" >
+
+      <ion-thumbnail slot="start" slot="start">
+        <img src="{{curso.Imagen}}" alet="foto">
+      </ion-thumbnail>
+      <ion-card-title>{{curso.Nombre}}</ion-card-title>
+    </ion-item>
+  
+
+  </ion-card>
+
+  <ion-fab *ngIf="rol=='Ayudante'" vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="crearCurso()">
+     <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  
+
+</ion-content>

@@ -1,0 +1,114 @@
+<ion-header >
+  <ion-toolbar>
+
+    <ion-segment color="tertiary" value="cursos" >
+
+      <!-- <ion-segment-button *ngIf="Rol==Ayudante" value="mis-ayudantias" [routerLink]="['/mis-ayudantias']" routerDirection="root">
+        <ion-icon name="file-tray-stacked-outline" size="large"></ion-icon> 
+        <ion-label style="font-size: 14;">Mis Cursos</ion-label>
+      </ion-segment-button> -->
+
+      <ion-segment-button value="publicaciones" [routerLink]="['/publicaciones']" routerDirection="root">
+        <ion-icon name="newspaper-outline" size="large"></ion-icon> 
+        <ion-label style="font-size: 14;">Publicaciones</ion-label>
+      </ion-segment-button>
+      
+      <ion-segment-button value="cursos" [routerLink]="['/cursos']" routerDirection="root">
+        <ion-icon name="library-outline" size="large"></ion-icon> <ion-label style="font-size: 14px;">Cursos</ion-label>
+      </ion-segment-button>
+    
+    
+      <ion-segment-button value="perfil" [routerLink]="['/perfil']" routerDirection="root">
+        <ion-icon name="person-circle-outline" size="large"></ion-icon> <ion-label style="font-size: 12px;">Perfil</ion-label>
+      </ion-segment-button>
+
+    </ion-segment>
+
+  </ion-toolbar>
+
+</ion-header>
+
+
+
+<ion-content>
+  <ion-toolbar>
+
+
+  
+  <ion-segment color="tertiary" value="anuncios">
+
+
+
+
+
+
+    <ion-segment-button value="anuncios" [routerLink]="['/curso-detalle',id, nombreCurso]" routerDirection="root">
+      <ion-icon name="megaphone-outline" size="large"></ion-icon> 
+      <ion-label>Anuncios</ion-label>
+    </ion-segment-button>
+    
+    <ion-segment-button value="ayudantes" [routerLink]="['/curso-ayudantes',id, nombreCurso]" routerDirection="root">
+      <ion-icon name="people-outline" size="large"></ion-icon> <ion-label>Ayudantes</ion-label>
+    </ion-segment-button>
+
+    <ion-segment-button value="grupos" [routerLink]="['/grupos',id, nombreCurso]" routerDirection="root">
+      <ion-icon name="people-circle-outline" size="large"></ion-icon> <ion-label>Grupos</ion-label>
+    </ion-segment-button>
+
+
+   
+  </ion-segment>
+
+</ion-toolbar>
+
+  <ion-searchbar
+    color="light" 
+    placeholder = "Buscar anuncio..."
+    animated
+    (ionChange)="buscar($event)">
+  </ion-searchbar>
+
+
+  <ng-container *ngIf="!getDatos()">
+    <ng-container *ngFor="let publicacion of publicaciones | filtroAnuncio: textoBuscar">
+      <ion-card *ngIf="publicacion.Materia == id"> 
+        <ion-card-header>
+          <ion-item>
+            <ion-card-title  (click)='aumentarVisita(publicacion.id,publicacion)'>{{publicacion.Titulo}}</ion-card-title>
+     
+            <ion-button fill="outline" slot='end' (click)='aumentarVisita(publicacion.id,publicacion)'><ion-icon name="eye-outline" ></ion-icon><label style="font-size: 12;margin-left: 7.5px;" >{{publicacion.Visitas}}</label></ion-button>
+            
+            </ion-item>
+        </ion-card-header>
+        <ion-card-content  (click)='aumentarVisita(publicacion.id,publicacion)'>
+          {{publicacion.Descripcion}}
+        </ion-card-content>
+      
+        <ng-container *ngIf="miId == publicacion.Estudiante">
+          <ion-item>
+            <ion-icon name="create-outline" slot='end'  (click)="redireccionar(publicacion.id)"></ion-icon>
+            <ion-icon name="trash-outline" slot='end' color='danger'(click)="alert(publicacion.id)"></ion-icon>
+
+          </ion-item>
+        </ng-container>
+
+      </ion-card>
+    </ng-container>
+  </ng-container>
+
+  <ng-container *ngIf="getDatos()">
+    <br><br><br><br><br><br>
+    <div class="ion-text-center">
+      <ion-text color="medium">
+        <img src="https://firebasestorage.googleapis.com/v0/b/taskyapp01.appspot.com/o/iconos%2FcursoDetalle.png?alt=media&token=76e0ec61-732c-48bd-a271-a23c0bb9b2c1" style="width: 55%; height:72%;" alet="foto">
+        <p style="font-size: 25px;">No hay anuncios registrados.</p>
+      </ion-text>  
+    </div>   
+  </ng-container>
+
+  <ion-fab  *ngIf="rol=='Ayudante'" vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="validarCurso()">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
