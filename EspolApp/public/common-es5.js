@@ -1353,7 +1353,9 @@
         function ComentariosService(firestore) {
           _classCallCheck(this, ComentariosService);
 
-          this.ComentariosCollection = firestore.collection('Comentarios');
+          this.ComentariosCollection = firestore.collection('Comentarios', function (ref) {
+            return ref.orderBy("Fecha", "desc");
+          });
           this.Comentarios = this.ComentariosCollection.snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (actions) {
             return actions.map(function (a) {
               var data = a.payload.doc.data();
@@ -1454,7 +1456,9 @@
         function CursosService(firestore) {
           _classCallCheck(this, CursosService);
 
-          this.cursosCollection = firestore.collection('Materias');
+          this.cursosCollection = firestore.collection('Materias', function (ref) {
+            return ref.orderBy("Nombre", "asc");
+          });
           this.cursos = this.cursosCollection.snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (actions) {
             return actions.map(function (a) {
               var data = a.payload.doc.data();
@@ -1746,7 +1750,9 @@
               }, data);
             });
           }));
-          this.publicacionesMateriaCollection = firestore.collection('Publicaciones');
+          this.publicacionesMateriaCollection = firestore.collection('Publicaciones', function (ref) {
+            return ref.orderBy("Fecha", "desc");
+          });
           this.publicacionesMateria = this.publicacionesMateriaCollection.snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (actions) {
             return actions.map(function (a) {
               var data = a.payload.doc.data();

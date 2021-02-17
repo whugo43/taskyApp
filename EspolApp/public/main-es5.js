@@ -1573,7 +1573,7 @@
     /***/
     function _(module, exports, __webpack_require__) {
       module.exports = __webpack_require__(
-      /*! C:\Users\anava\Documents\TaskyApp\taskyApp\EspolApp\src\main.ts */
+      /*! C:\Users\whugo\Desktop\taskyApp\EspolApp\src\main.ts */
       "./src/main.ts");
       /***/
     }

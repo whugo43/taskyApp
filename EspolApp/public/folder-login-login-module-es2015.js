@@ -211,7 +211,7 @@ let LoginPage = class LoginPage {
                         role: 'cancel',
                         cssClass: 'secondary',
                         handler: (blah) => {
-                            console.log('Confirm Cancel: blah');
+                            //console.log('Confirm Cancel: blah');
                         }
                     }, {
                         text: 'Ok',

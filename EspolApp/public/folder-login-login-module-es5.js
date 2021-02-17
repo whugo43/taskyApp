@@ -413,8 +413,7 @@
                           text: 'Cancel',
                           role: 'cancel',
                           cssClass: 'secondary',
-                          handler: function handler(blah) {
-                            console.log('Confirm Cancel: blah');
+                          handler: function handler(blah) {//console.log('Confirm Cancel: blah');
                           }
                         }, {
                           text: 'Ok',

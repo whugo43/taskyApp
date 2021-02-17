@@ -174,7 +174,7 @@ let CrearAyudantiaPage = class CrearAyudantiaPage {
                 this.nuevosCursos.push(this.todosCursos[index]);
             }
         }
-        console.log('hola', this.nuevosCursos);
+        //console.log('hola',this.nuevosCursos)
     }
     listaCursos() {
         for (let index = 0; index < this.ayudantias.length; index++) {

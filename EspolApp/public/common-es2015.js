@@ -821,7 +821,7 @@ __webpack_require__.r(__webpack_exports__);
 
 let ComentariosService = class ComentariosService {
     constructor(firestore) {
-        this.ComentariosCollection = firestore.collection('Comentarios');
+        this.ComentariosCollection = firestore.collection('Comentarios', ref => ref.orderBy("Fecha", "desc"));
         this.Comentarios = this.ComentariosCollection.snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(actions => {
             return actions.map(a => {
                 const data = a.payload.doc.data();
@@ -877,7 +877,7 @@ __webpack_require__.r(__webpack_exports__);
 
 let CursosService = class CursosService {
     constructor(firestore) {
-        this.cursosCollection = firestore.collection('Materias');
+        this.cursosCollection = firestore.collection('Materias', ref => ref.orderBy("Nombre", "asc"));
         this.cursos = this.cursosCollection.snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(actions => {
             return actions.map(a => {
                 const data = a.payload.doc.data();
@@ -1065,7 +1065,7 @@ let PublicacionesService = class PublicacionesService {
                 return Object.assign({ id }, data);
             });
         }));
-        this.publicacionesMateriaCollection = firestore.collection('Publicaciones');
+        this.publicacionesMateriaCollection = firestore.collection('Publicaciones', ref => ref.orderBy("Fecha", "desc"));
         this.publicacionesMateria = this.publicacionesMateriaCollection.snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(actions => {
             return actions.map(a => {
                 const data = a.payload.doc.data();
