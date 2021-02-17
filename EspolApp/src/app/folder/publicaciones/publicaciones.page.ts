@@ -43,7 +43,7 @@ export class PublicacionesPage implements OnInit {
     this.rol = localStorage.getItem('Rol')
 
     this.publicacionesService.getPublicacionesMateria().subscribe(res=> this.publicaciones = res);
-    this.publicidadService.getPublicidad().subscribe(res=> {this.publicidad = res[0];console.log(res[0])});
+    this.publicidadService.getPublicidad().subscribe(res=> {this.publicidad = res[0];});
     //this.publicacionesService.probar().subscribe(res=>this.probar = res);
  
     
@@ -71,8 +71,7 @@ export class PublicacionesPage implements OnInit {
     //console.log("fff", publicacion.Visitas)
     //[routerLink]="['/curso-detalle-anuncio',publicacion.id]"
     this.publicacionesService.updatePublicacionesMateria(id,publicacion)
-      this.router.navigate(['/curso-detalle-anuncio',publicacion.id]);
-      console.log("ingreso")   
+      this.router.navigate(['/curso-detalle-anuncio',publicacion.id]); 
   }
 
   aumentarVisitaPublicidad(id:string,publicidad:Publicidad){
@@ -80,8 +79,7 @@ export class PublicacionesPage implements OnInit {
     //console.log("fff", publicidad.Visitas)
     //[routerLink]="['/detalle-publicidad',publicacion.id]"
     this.publicidadService.updatePublicidad(id,publicidad)
-    this.router.navigate(['/detalle-publicidad',publicidad.id]);
-    console.log("ingreso")   
+    this.router.navigate(['/detalle-publicidad',publicidad.id]); 
   }
 
   validarCurso(){
@@ -119,14 +117,14 @@ export class PublicacionesPage implements OnInit {
           role: 'cancel',
           cssClass: 'secondary',
           handler: (blah) => {
-            console.log('Confirm Cancel: blah');
+            //console.log('Confirm Cancel: blah');
           }
         }, {
           text: 'Ser premium',
           handler: (data) => {
             this.serPremium()
             
-            console.log('registrar')
+            //console.log('registrar')
           
           }
         }
@@ -169,7 +167,7 @@ export class PublicacionesPage implements OnInit {
           role: 'cancel',
           cssClass: 'secondary',
           handler: (blah) => {
-            console.log('Confirm Cancel: blah');
+            //console.log('Confirm Cancel: blah');
           }
         }, {
           text: 'Elminar',

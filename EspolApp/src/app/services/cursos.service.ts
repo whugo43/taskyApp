@@ -13,7 +13,7 @@ export class CursosService {
     private cursos: Observable<Cursos[]>;
 
     constructor(firestore: AngularFirestore) {
-      this.cursosCollection = firestore.collection('Materias');
+      this.cursosCollection = firestore.collection('Materias', ref => ref.orderBy("Nombre", "asc"));
       this.cursos = this.cursosCollection.snapshotChanges().pipe(map(
         actions =>{
           return actions.map( a=>{

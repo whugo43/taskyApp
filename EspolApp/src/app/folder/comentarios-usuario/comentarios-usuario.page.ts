@@ -54,7 +54,7 @@ export class ComentariosUsuarioPage implements OnInit {
           role: 'cancel',
           cssClass: 'secondary',
           handler: (blah) => {
-            console.log('Confirm Cancel: blah');
+            //console.log('Confirm Cancel: blah');
           }
         }, 
         {
@@ -113,9 +113,11 @@ export class ComentariosUsuarioPage implements OnInit {
   }
 
   agregarSolitiud(comentario:string){
+    var fechaActual = new Date();
     this.comentario.Ayudante = this.id;
     this.comentario.Estudiante = this.miID;
     this.comentario.Materia = this.idMateria;
+    this.comentario.Fecha = fechaActual.toString();
     this.comentario.Comentario = comentario;
     this.comentariosService.addComentario(this.comentario);
 

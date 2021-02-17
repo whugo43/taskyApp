@@ -35,7 +35,7 @@ export class PublicacionesService {
 
 
 
-      this.publicacionesMateriaCollection = firestore.collection('Publicaciones');
+      this.publicacionesMateriaCollection = firestore.collection('Publicaciones',ref => ref.orderBy("Fecha", "desc"));
       this.publicacionesMateria = this.publicacionesMateriaCollection.snapshotChanges().pipe(map(
         actions =>{
           return actions.map( a=>{

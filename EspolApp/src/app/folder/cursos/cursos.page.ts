@@ -48,8 +48,8 @@ export class CursosPage implements OnInit {
   validarPublicacion(){
     const valor = this.anuncios[0].Mostrar;
     this.anuncio = this.anuncios[0]
-    console.log('valor:',valor)
-    console.log(this.user.Anuncio)
+    //console.log('valor:',valor)
+    //console.log(this.user.Anuncio)
     if(this.anuncios[0].Mostrar && this.user.Anuncio){
       this.failedAlert()
     }
@@ -58,7 +58,7 @@ export class CursosPage implements OnInit {
   buscar(event){
     const texto = event.target.value
     this.textoBuscar=texto;
-    console.log(this.anuncios[0].Titulo)
+    //console.log(this.anuncios[0].Titulo)
   }
 
   async crearCurso() {
@@ -128,7 +128,7 @@ export class CursosPage implements OnInit {
             cssClass: 'secondary',
             handler: (blah) => {
               this.aumentarAnuncio();
-              console.log(blah)
+              //console.log(blah)
               
             }
           }
@@ -156,7 +156,7 @@ export class CursosPage implements OnInit {
           role: 'cancel',
           cssClass: 'secondary',
           handler: (blah) => {
-            console.log('Confirm Cancel: blah');
+            //console.log('Confirm Cancel: blah');
           }
         }, 
         {

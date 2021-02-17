@@ -100,20 +100,13 @@ export class UsuarioDetallePage implements OnInit {
 
   controlar(){ 
     let validar = true;
-    console.log(this.id);
-    console.log(this.idMateria);
-    console.log(this.myId);
-    console.log('--')
 
 
     
     for (let index = 0; index < this.calificaciones.length; index++) {
-      console.log('-')
-      console.log(this.calificaciones[index].Materia,this.calificaciones[index].Ayudante,this.calificaciones[index].Estudiante)
       if((this.calificaciones[index].Materia == this.idMateria) && (this.calificaciones[index].Ayudante == this.id)&& (this.calificaciones[index].Estudiante == this.myId)){
         this.click = true;
         validar = false;
-        console.log('holaa')
         
       }
     }
@@ -123,7 +116,6 @@ export class UsuarioDetallePage implements OnInit {
     }
 
     
-    console.log(this.click)
     
     // if (validar= false){
     //   this.click= true;

@@ -105,7 +105,7 @@ export class CrearGrupoPage implements OnInit {
     ).catch(async error => {
       // this.loading.dismiss();
       var mensaje=error.code.split('/')[1];
-      console.log('error')
+      //console.log('error')
       // const presentarMensaje = this.mensajeErrorService.AuthErrorCodeSpanish(mensaje);
       // this.failedAlert(presentarMensaje)
     })

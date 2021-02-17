@@ -4,4 +4,5 @@ export class Comentarios {
     Estudiante: string;
     Materia: string;
     Comentario: string;
+    Fecha:string;
 }

@@ -38,17 +38,9 @@
       <ion-card-header>
         <ion-item>
         <ion-card-title >{{publicidad.Titulo}}</ion-card-title>  
-        <!-- <ion-button fill="outline" slot='end' (click)='aumentarVisita(publicacion.id,publicacion)'><ion-icon name="eye-outline" ></ion-icon><label style="font-size: 12;margin-left: 7.5px;" >{{publicacion.Visitas}}</label></ion-button>
-         -->
-
-
-        <!-- <ng-container *ngIf="miId == publicacion.Estudiante">
-          <ion-icon name="create-outline" slot='end'  (click)="redireccionar(publicacion.id)"></ion-icon>
-          <ion-icon name="trash-outline" slot='end' color='danger'(click)="alert(publicacion.id)"></ion-icon>
-        </ng-container> -->
       </ion-item>
       </ion-card-header>
-      <ion-card-content (click)='aumentarVisita(publicacion.id,publicacion)'>
+      <ion-card-content (click)='aumentarVisitaPublicidad(publicidad.id,publicidad)'>
         {{publicidad.Descripcion}}
       </ion-card-content>
 

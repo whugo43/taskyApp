@@ -37,7 +37,7 @@ export class CursoAyudantesPage implements OnInit {
   ngOnInit() {
 
     this.activateRoute.paramMap.subscribe(paramMap => {
-      console.log(paramMap)
+      //console.log(paramMap)
       this.rol = localStorage.getItem('Rol')
       this.miId = localStorage.getItem('userId');
       const idCurso = paramMap.get('id');
@@ -45,7 +45,7 @@ export class CursoAyudantesPage implements OnInit {
       this.nombreCurso= nombreCurso;
      // const nombreCurso = paramMap.get('Nombre');
       this.id = idCurso;
-      console.log('rol: ',this.rol)
+      //console.log('rol: ',this.rol)
      // this.nombre = nombreCurso;
       //this.actividadService.getActividad(idActividad).subscribe(res => this.actividad =res);
       
@@ -79,7 +79,7 @@ export class CursoAyudantesPage implements OnInit {
     this.ayudanteService.updateAyudante(id,ayudante)
    
       this.router.navigate(['/usuario-detalle',this.id,ayudante.Usuario]);
-      console.log("ingreso")  
+
   }
 
   buscar(event){
@@ -88,7 +88,6 @@ export class CursoAyudantesPage implements OnInit {
   }
 
   listaCursos(){
-    console.log('id: ',this.id)
     for (let index = 0; index < this.ayudantias.length; index++) {
       if(this.ayudantias[index].Usuario == this.miId){
         this.cursosMisAyudantias.push(this.ayudantias[index].Materia)
@@ -102,7 +101,6 @@ export class CursoAyudantesPage implements OnInit {
   }
 
   shuffle(array) {
-    console.log(array)
     var currentIndex = array.length, temporaryValue, randomIndex;
 
     // While there remain elements to shuffle...
@@ -117,8 +115,6 @@ export class CursoAyudantesPage implements OnInit {
       array[currentIndex] = array[randomIndex];
       array[randomIndex] = temporaryValue;
     }
-    console.log('hola')
-    console.log(array)
     return array;
   }
 
@@ -164,14 +160,14 @@ export class CursoAyudantesPage implements OnInit {
           role: 'cancel',
           cssClass: 'secondary',
           handler: (blah) => {
-            console.log('Confirm Cancel: blah');
+            //console.log('Confirm Cancel: blah');
           }
         }, {
           text: 'Registrar materia',
           handler: (data) => {
             this.router.navigate(['/crear-ayudantia']);
             
-            console.log('registrar')
+            //console.log('registrar')
           
           }
         }

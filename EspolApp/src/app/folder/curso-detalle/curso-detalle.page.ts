@@ -48,7 +48,6 @@ export class CursoDetallePage implements OnInit {
     this.miId = localStorage.getItem('userId');
     this.rol = localStorage.getItem('Rol')
     this.activateRoute.paramMap.subscribe(paramMap => {
-      console.log(paramMap)
       const idCurso = paramMap.get('id');
       const nombreCurso = paramMap.get('nombre');
       this.nombreCurso= nombreCurso;
@@ -68,7 +67,6 @@ export class CursoDetallePage implements OnInit {
 
 
   listaCursos(){
-    console.log('id: ',this.id)
     for (let index = 0; index < this.ayudantias.length; index++) {
       if(this.ayudantias[index].Usuario == this.miId){
         this.cursosMisAyudantias.push(this.ayudantias[index].Materia)
@@ -117,14 +115,14 @@ export class CursoDetallePage implements OnInit {
           role: 'cancel',
           cssClass: 'secondary',
           handler: (blah) => {
-            console.log('Confirm Cancel: blah');
+            //console.log('Confirm Cancel: blah');
           }
         }, {
           text: 'Ser premium',
           handler: (data) => {
             this.serPremium()
             
-            console.log('registrar')
+            //console.log('registrar')
           
           }
         }
@@ -166,14 +164,14 @@ export class CursoDetallePage implements OnInit {
           role: 'cancel',
           cssClass: 'secondary',
           handler: (blah) => {
-            console.log('Confirm Cancel: blah');
+            //console.log('Confirm Cancel: blah');
           }
         }, {
           text: 'Registrar materia',
           handler: (data) => {
             this.router.navigate(['/crear-ayudantia']);
             
-            console.log('registrar')
+            //console.log('registrar')
           
           }
         }
@@ -197,11 +195,11 @@ export class CursoDetallePage implements OnInit {
 
   aumentarVisita(id:string,publicacion:PublicacionesMateria){
     publicacion.Visitas= publicacion.Visitas + 1
-    console.log("fff", publicacion.Visitas)
+    //console.log("fff", publicacion.Visitas)
     //[routerLink]="['/curso-detalle-anuncio',publicacion.id]"
     this.publicacionesService.updatePublicacionesMateria(id,publicacion)
       this.router.navigate(['/curso-detalle-anuncio',publicacion.id]);
-      console.log("ingreso")   
+      //console.log("ingreso")   
   }
 
 
@@ -225,7 +223,7 @@ export class CursoDetallePage implements OnInit {
           role: 'cancel',
           cssClass: 'secondary',
           handler: (blah) => {
-            console.log('Confirm Cancel: blah');
+            //console.log('Confirm Cancel: blah');
           }
         }, 
         {

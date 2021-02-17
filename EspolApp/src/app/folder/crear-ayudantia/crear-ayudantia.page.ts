@@ -74,7 +74,7 @@ export class CrearAyudantiaPage implements OnInit {
       
 
     }
-    console.log('hola',this.nuevosCursos)
+    //console.log('hola',this.nuevosCursos)
 
   }
 
