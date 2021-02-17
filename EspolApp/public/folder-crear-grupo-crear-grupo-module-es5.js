@@ -340,11 +340,11 @@
                               switch (_context2.prev = _context2.next) {
                                 case 0:
                                   // this.loading.dismiss();
-                                  mensaje = error.code.split('/')[1];
-                                  console.log('error'); // const presentarMensaje = this.mensajeErrorService.AuthErrorCodeSpanish(mensaje);
+                                  mensaje = error.code.split('/')[1]; //console.log('error')
+                                  // const presentarMensaje = this.mensajeErrorService.AuthErrorCodeSpanish(mensaje);
                                   // this.failedAlert(presentarMensaje)
 
-                                case 2:
+                                case 1:
                                 case "end":
                                   return _context2.stop();
                               }

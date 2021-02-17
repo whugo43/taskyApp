@@ -321,9 +321,8 @@
               if (this.cursosMisAyudantias.includes(this.todosCursos[index])) {} else {
                 this.nuevosCursos.push(this.todosCursos[index]);
               }
-            }
+            } //console.log('hola',this.nuevosCursos)
 
-            console.log('hola', this.nuevosCursos);
           }
         }, {
           key: "listaCursos",

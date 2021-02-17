@@ -265,15 +265,15 @@
             var _this = this;
 
             this.activateRoute.paramMap.subscribe(function (paramMap) {
-              console.log(paramMap);
+              //console.log(paramMap)
               _this.rol = localStorage.getItem('Rol');
               _this.miId = localStorage.getItem('userId');
               var idCurso = paramMap.get('id');
               var nombreCurso = paramMap.get('nombre');
               _this.nombreCurso = nombreCurso; // const nombreCurso = paramMap.get('Nombre');
 
-              _this.id = idCurso;
-              console.log('rol: ', _this.rol); // this.nombre = nombreCurso;
+              _this.id = idCurso; //console.log('rol: ',this.rol)
+              // this.nombre = nombreCurso;
               //this.actividadService.getActividad(idActividad).subscribe(res => this.actividad =res);
             });
             this.ayudanteService.getAyudantes().subscribe(function (res) {
@@ -312,7 +312,6 @@
 
             this.ayudanteService.updateAyudante(id, ayudante);
             this.router.navigate(['/usuario-detalle', this.id, ayudante.Usuario]);
-            console.log("ingreso");
           }
         }, {
           key: "buscar",
@@ -323,8 +322,6 @@
         }, {
           key: "listaCursos",
           value: function listaCursos() {
-            console.log('id: ', this.id);
-
             for (var index = 0; index < this.ayudantias.length; index++) {
               if (this.ayudantias[index].Usuario == this.miId) {
                 this.cursosMisAyudantias.push(this.ayudantias[index].Materia);
@@ -334,7 +331,6 @@
         }, {
           key: "shuffle",
           value: function shuffle(array) {
-            console.log(array);
             var currentIndex = array.length,
                 temporaryValue,
                 randomIndex; // While there remain elements to shuffle...
@@ -349,8 +345,6 @@
               array[randomIndex] = temporaryValue;
             }
 
-            console.log('hola');
-            console.log(array);
             return array;
           }
         }, {
@@ -396,15 +390,13 @@
                           text: 'Cancelar',
                           role: 'cancel',
                           cssClass: 'secondary',
-                          handler: function handler(blah) {
-                            console.log('Confirm Cancel: blah');
+                          handler: function handler(blah) {//console.log('Confirm Cancel: blah');
                           }
                         }, {
                           text: 'Registrar materia',
                           handler: function handler(data) {
-                            _this2.router.navigate(['/crear-ayudantia']);
+                            _this2.router.navigate(['/crear-ayudantia']); //console.log('registrar')
 
-                            console.log('registrar');
                           }
                         }]
                       });

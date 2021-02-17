@@ -313,9 +313,8 @@
           key: "validarPublicacion",
           value: function validarPublicacion() {
             var valor = this.anuncios[0].Mostrar;
-            this.anuncio = this.anuncios[0];
-            console.log('valor:', valor);
-            console.log(this.user.Anuncio);
+            this.anuncio = this.anuncios[0]; //console.log('valor:',valor)
+            //console.log(this.user.Anuncio)
 
             if (this.anuncios[0].Mostrar && this.user.Anuncio) {
               this.failedAlert();
@@ -325,8 +324,7 @@
           key: "buscar",
           value: function buscar(event) {
             var texto = event.target.value;
-            this.textoBuscar = texto;
-            console.log(this.anuncios[0].Titulo);
+            this.textoBuscar = texto; //console.log(this.anuncios[0].Titulo)
           }
         }, {
           key: "crearCurso",
@@ -416,9 +414,8 @@
                           role: 'cancel',
                           cssClass: 'secondary',
                           handler: function handler(blah) {
-                            _this4.aumentarAnuncio();
+                            _this4.aumentarAnuncio(); //console.log(blah)
 
-                            console.log(blah);
                           }
                         } // , {
                         //   text: 'Registrar materia',
@@ -460,8 +457,7 @@
                           text: 'Cancelar',
                           role: 'cancel',
                           cssClass: 'secondary',
-                          handler: function handler(blah) {
-                            console.log('Confirm Cancel: blah');
+                          handler: function handler(blah) {//console.log('Confirm Cancel: blah');
                           }
                         }, {
                           text: 'Elminar',

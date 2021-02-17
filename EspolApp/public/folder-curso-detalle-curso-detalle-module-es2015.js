@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header >\r\n  <ion-toolbar>\r\n\r\n    <ion-segment color=\"tertiary\" value=\"cursos\" >\r\n\r\n      <!-- <ion-segment-button *ngIf=\"Rol==Ayudante\" value=\"mis-ayudantias\" [routerLink]=\"['/mis-ayudantias']\" routerDirection=\"root\">\r\n        <ion-icon name=\"file-tray-stacked-outline\" size=\"large\"></ion-icon> \r\n        <ion-label style=\"font-size: 14;\">Mis Cursos</ion-label>\r\n      </ion-segment-button> -->\r\n\r\n      <ion-segment-button value=\"publicaciones\" [routerLink]=\"['/publicaciones']\" routerDirection=\"root\">\r\n        <ion-icon name=\"newspaper-outline\" size=\"large\"></ion-icon> \r\n        <ion-label style=\"font-size: 14;\">Publicaciones</ion-label>\r\n      </ion-segment-button>\r\n      \r\n      <ion-segment-button value=\"cursos\" [routerLink]=\"['/cursos']\" routerDirection=\"root\">\r\n        <ion-icon name=\"library-outline\" size=\"large\"></ion-icon> <ion-label style=\"font-size: 14px;\">Cursos</ion-label>\r\n      </ion-segment-button>\r\n    \r\n    \r\n      <ion-segment-button value=\"perfil\" [routerLink]=\"['/perfil']\" routerDirection=\"root\">\r\n        <ion-icon name=\"person-circle-outline\" size=\"large\"></ion-icon> <ion-label style=\"font-size: 12px;\">Perfil</ion-label>\r\n      </ion-segment-button>\r\n\r\n    </ion-segment>\r\n\r\n  </ion-toolbar>\r\n\r\n</ion-header>\r\n\r\n\r\n\r\n<ion-content>\r\n  <ion-toolbar>\r\n\r\n\r\n  \r\n  <ion-segment color=\"tertiary\" value=\"anuncios\">\r\n\r\n\r\n\r\n\r\n\r\n\r\n    <ion-segment-button value=\"anuncios\" [routerLink]=\"['/curso-detalle',id, nombreCurso]\" routerDirection=\"root\">\r\n      <ion-icon name=\"megaphone-outline\" size=\"large\"></ion-icon> \r\n      <ion-label>Anuncios</ion-label>\r\n    </ion-segment-button>\r\n    \r\n    <ion-segment-button value=\"ayudantes\" [routerLink]=\"['/curso-ayudantes',id, nombreCurso]\" routerDirection=\"root\">\r\n      <ion-icon name=\"people-outline\" size=\"large\"></ion-icon> <ion-label>Ayudantes</ion-label>\r\n    </ion-segment-button>\r\n\r\n    <ion-segment-button value=\"grupos\" [routerLink]=\"['/grupos',id, nombreCurso]\" routerDirection=\"root\">\r\n      <ion-icon name=\"people-circle-outline\" size=\"large\"></ion-icon> <ion-label>Grupos</ion-label>\r\n    </ion-segment-button>\r\n\r\n\r\n   \r\n  </ion-segment>\r\n\r\n</ion-toolbar>\r\n\r\n  <ion-searchbar\r\n    color=\"light\" \r\n    placeholder = \"Buscar anuncio...\"\r\n    animated\r\n    (ionChange)=\"buscar($event)\">\r\n  </ion-searchbar>\r\n\r\n\r\n  <ng-container *ngIf=\"!getDatos()\">\r\n    <ng-container *ngFor=\"let publicacion of publicaciones | filtroAnuncio: textoBuscar\">\r\n      <ion-card *ngIf=\"publicacion.Materia == id\"> \r\n        <ion-card-header>\r\n          <ion-item>\r\n            <ion-card-title  (click)='aumentarVisita(publicacion.id,publicacion)'>{{publicacion.Titulo}}</ion-card-title>\r\n     \r\n            <ion-button fill=\"outline\" slot='end' (click)='aumentarVisita(publicacion.id,publicacion)'><ion-icon name=\"eye-outline\" ></ion-icon><label style=\"font-size: 12;margin-left: 7.5px;\" >{{publicacion.Visitas}}</label></ion-button>\r\n            \r\n            </ion-item>\r\n        </ion-card-header>\r\n        <ion-card-content  (click)='aumentarVisita(publicacion.id,publicacion)'>\r\n          {{publicacion.Descripcion}}\r\n        </ion-card-content>\r\n      \r\n        <ng-container *ngIf=\"miId == publicacion.Estudiante\">\r\n          <ion-item>\r\n            <ion-icon name=\"create-outline\" slot='end'  (click)=\"redireccionar(publicacion.id)\"></ion-icon>\r\n            <ion-icon name=\"trash-outline\" slot='end' color='danger'(click)=\"alert(publicacion.id)\"></ion-icon>\r\n\r\n          </ion-item>\r\n        </ng-container>\r\n\r\n      </ion-card>\r\n    </ng-container>\r\n  </ng-container>\r\n\r\n  <ng-container *ngIf=\"getDatos()\">\r\n    <br><br><br><br><br><br>\r\n    <div class=\"ion-text-center\">\r\n      <ion-text color=\"medium\">\r\n        <img src=\"https://firebasestorage.googleapis.com/v0/b/taskyapp01.appspot.com/o/iconos%2FcursoDetalle.png?alt=media&token=76e0ec61-732c-48bd-a271-a23c0bb9b2c1\" style=\"width: 55%; height:72%;\" alet=\"foto\">\r\n        <p style=\"font-size: 25px;\">No hay anuncios registrados.</p>\r\n      </ion-text>  \r\n    </div>   \r\n  </ng-container>\r\n\r\n  <ion-fab  *ngIf=\"rol=='Ayudante'\" vertical=\"bottom\" horizontal=\"end\" slot=\"fixed\">\r\n    <ion-fab-button (click)=\"validarCurso()\">\r\n      <ion-icon name=\"add-outline\"></ion-icon>\r\n    </ion-fab-button>\r\n  </ion-fab>\r\n</ion-content>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header >\r\n  <ion-toolbar>\r\n\r\n    <ion-segment color=\"tertiary\" value=\"cursos\" >\r\n\r\n      <!-- <ion-segment-button *ngIf=\"Rol==Ayudante\" value=\"mis-ayudantias\" [routerLink]=\"['/mis-ayudantias']\" routerDirection=\"root\">\r\n        <ion-icon name=\"file-tray-stacked-outline\" size=\"large\"></ion-icon> \r\n        <ion-label style=\"font-size: 14;\">Mis Cursos</ion-label>\r\n      </ion-segment-button> -->\r\n\r\n      <ion-segment-button value=\"publicaciones\" [routerLink]=\"['/publicaciones']\" routerDirection=\"root\">\r\n        <ion-icon name=\"newspaper-outline\" size=\"large\"></ion-icon> \r\n        <ion-label style=\"font-size: 14;\">Publicaciones</ion-label>\r\n      </ion-segment-button>\r\n      \r\n      <ion-segment-button value=\"cursos\" [routerLink]=\"['/cursos']\" routerDirection=\"root\">\r\n        <ion-icon name=\"library-outline\" size=\"large\"></ion-icon> <ion-label style=\"font-size: 14px;\">Cursos</ion-label>\r\n      </ion-segment-button>\r\n    \r\n    \r\n      <ion-segment-button value=\"perfil\" [routerLink]=\"['/perfil']\" routerDirection=\"root\">\r\n        <ion-icon name=\"person-circle-outline\" size=\"large\"></ion-icon> <ion-label style=\"font-size: 12px;\">Perfil</ion-label>\r\n      </ion-segment-button>\r\n\r\n    </ion-segment>\r\n\r\n  </ion-toolbar>\r\n\r\n</ion-header>\r\n\r\n\r\n\r\n<ion-content>\r\n  <ion-toolbar>\r\n\r\n\r\n  \r\n  <ion-segment color=\"tertiary\" value=\"anuncios\">\r\n\r\n\r\n\r\n\r\n\r\n\r\n    <ion-segment-button value=\"anuncios\" [routerLink]=\"['/curso-detalle',id, nombreCurso]\" routerDirection=\"root\">\r\n      <ion-icon name=\"megaphone-outline\" size=\"large\"></ion-icon> \r\n      <ion-label>Anuncios</ion-label>\r\n    </ion-segment-button>\r\n    \r\n    <ion-segment-button value=\"ayudantes\" [routerLink]=\"['/curso-ayudantes',id, nombreCurso]\" routerDirection=\"root\">\r\n      <ion-icon name=\"people-outline\" size=\"large\"></ion-icon> <ion-label>Ayudantes</ion-label>\r\n    </ion-segment-button>\r\n\r\n    <ion-segment-button value=\"grupos\" [routerLink]=\"['/grupos',id, nombreCurso]\" routerDirection=\"root\">\r\n      <ion-icon name=\"people-circle-outline\" size=\"large\"></ion-icon> <ion-label>Grupos</ion-label>\r\n    </ion-segment-button>\r\n\r\n\r\n   \r\n  </ion-segment>\r\n\r\n</ion-toolbar>\r\n\r\n  <ion-searchbar\r\n    color=\"light\" \r\n    placeholder = \"Buscar anuncio...\"\r\n    animated\r\n    (ionChange)=\"buscar($event)\">\r\n  </ion-searchbar>\r\n\r\n\r\n  <ng-container *ngIf=\"!getDatos()\">\r\n    <ng-container *ngFor=\"let publicacion of publicaciones | filtroAnuncio: textoBuscar\">\r\n      <ion-card *ngIf=\"publicacion.Materia == id\"> \r\n        <ion-card-header>\r\n          <ion-item>\r\n            <ion-card-title  (click)='aumentarVisita(publicacion.id,publicacion)'>{{publicacion.Titulo}}</ion-card-title>\r\n     \r\n            <ion-button fill=\"outline\" slot='end' (click)='aumentarVisita(publicacion.id,publicacion)'><ion-icon name=\"eye-outline\" ></ion-icon><label style=\"font-size: 12;margin-left: 7.5px;\" >{{publicacion.Visitas}}</label></ion-button>\r\n            \r\n            </ion-item>\r\n        </ion-card-header>\r\n        <ion-card-content  (click)='aumentarVisita(publicacion.id,publicacion)'>\r\n          {{publicacion.Descripcion}}\r\n        </ion-card-content>\r\n      \r\n        <ng-container >\r\n          <ion-item>\r\n            <label>{{publicacion.Fecha | date:'yyyy/MM/dd'}}</label>\r\n            <ion-icon *ngIf=\"miId == publicacion.Estudiante\" name=\"create-outline\" slot='end'  (click)=\"redireccionar(publicacion.id)\"></ion-icon>\r\n            <ion-icon *ngIf=\"miId == publicacion.Estudiante\" name=\"trash-outline\" slot='end' color='danger'(click)=\"alert(publicacion.id)\"></ion-icon>\r\n\r\n          </ion-item>\r\n\r\n         \r\n          \r\n        </ng-container>\r\n\r\n        \r\n\r\n      </ion-card>\r\n      \r\n    </ng-container>\r\n   \r\n  </ng-container>\r\n\r\n  <ng-container *ngIf=\"getDatos()\">\r\n    <br><br><br><br><br><br>\r\n    <div class=\"ion-text-center\">\r\n      <ion-text color=\"medium\">\r\n        <img src=\"https://firebasestorage.googleapis.com/v0/b/taskyapp01.appspot.com/o/iconos%2FcursoDetalle.png?alt=media&token=76e0ec61-732c-48bd-a271-a23c0bb9b2c1\" style=\"width: 55%; height:72%;\" alet=\"foto\">\r\n        <p style=\"font-size: 25px;\">No hay anuncios registrados.</p>\r\n      </ion-text>  \r\n    </div>   \r\n  </ng-container>\r\n\r\n  <ion-fab  *ngIf=\"rol=='Ayudante'\" vertical=\"bottom\" horizontal=\"end\" slot=\"fixed\">\r\n    <ion-fab-button (click)=\"validarCurso()\">\r\n      <ion-icon name=\"add-outline\"></ion-icon>\r\n    </ion-fab-button>\r\n  </ion-fab>\r\n</ion-content>\r\n");
 
 /***/ }),
 
@@ -161,7 +161,6 @@ let CursoDetallePage = class CursoDetallePage {
         this.miId = localStorage.getItem('userId');
         this.rol = localStorage.getItem('Rol');
         this.activateRoute.paramMap.subscribe(paramMap => {
-            console.log(paramMap);
             const idCurso = paramMap.get('id');
             const nombreCurso = paramMap.get('nombre');
             this.nombreCurso = nombreCurso;
@@ -176,7 +175,6 @@ let CursoDetallePage = class CursoDetallePage {
         this.usuarioService.getUsuarios().subscribe(res => this.usuarios = res);
     }
     listaCursos() {
-        console.log('id: ', this.id);
         for (let index = 0; index < this.ayudantias.length; index++) {
             if (this.ayudantias[index].Usuario == this.miId) {
                 this.cursosMisAyudantias.push(this.ayudantias[index].Materia);
@@ -212,13 +210,13 @@ let CursoDetallePage = class CursoDetallePage {
                         role: 'cancel',
                         cssClass: 'secondary',
                         handler: (blah) => {
-                            console.log('Confirm Cancel: blah');
+                            //console.log('Confirm Cancel: blah');
                         }
                     }, {
                         text: 'Ser premium',
                         handler: (data) => {
                             this.serPremium();
-                            console.log('registrar');
+                            //console.log('registrar')
                         }
                     }
                 ]
@@ -259,13 +257,13 @@ let CursoDetallePage = class CursoDetallePage {
                         role: 'cancel',
                         cssClass: 'secondary',
                         handler: (blah) => {
-                            console.log('Confirm Cancel: blah');
+                            //console.log('Confirm Cancel: blah');
                         }
                     }, {
                         text: 'Registrar materia',
                         handler: (data) => {
                             this.router.navigate(['/crear-ayudantia']);
-                            console.log('registrar');
+                            //console.log('registrar')
                         }
                     }
                 ]
@@ -283,11 +281,11 @@ let CursoDetallePage = class CursoDetallePage {
     }
     aumentarVisita(id, publicacion) {
         publicacion.Visitas = publicacion.Visitas + 1;
-        console.log("fff", publicacion.Visitas);
+        //console.log("fff", publicacion.Visitas)
         //[routerLink]="['/curso-detalle-anuncio',publicacion.id]"
         this.publicacionesService.updatePublicacionesMateria(id, publicacion);
         this.router.navigate(['/curso-detalle-anuncio', publicacion.id]);
-        console.log("ingreso");
+        //console.log("ingreso")   
     }
     buscar(event) {
         const texto = event.target.value;
@@ -307,7 +305,7 @@ let CursoDetallePage = class CursoDetallePage {
                         role: 'cancel',
                         cssClass: 'secondary',
                         handler: (blah) => {
-                            console.log('Confirm Cancel: blah');
+                            //console.log('Confirm Cancel: blah');
                         }
                     },
                     {
