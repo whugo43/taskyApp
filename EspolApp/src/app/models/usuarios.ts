@@ -17,4 +17,6 @@ export class Usuarios {
     Anuncio: boolean;
     EsperaPremium:boolean;
     Cursos:number;
+    AyudantiaAceptada:boolean;
+    Citas:boolean;
 }

@@ -8,6 +8,7 @@ import { Anuncios } from 'src/app/models/anuncios';
 import { AnunciosService } from 'src/app/services/anuncios.service';
 import { Usuarios } from 'src/app/models/usuarios';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-cursos',
@@ -29,7 +30,8 @@ export class CursosPage implements OnInit {
               private usuarioService: UsuarioService,
               public materiaService: MateriaSolicitudService,
               public anuncioService: AnunciosService,
-              private alertCtrt: AlertController,) { }
+              private alertCtrt: AlertController,
+              private authService:AuthService) { }
 
   ngOnInit() {
 
@@ -37,7 +39,7 @@ export class CursosPage implements OnInit {
     this.userId = localStorage.getItem('userId')
     this.rol = localStorage.getItem('Rol')
     
-    this.usuarioService.getUsuario(localStorage.getItem('userId')).subscribe(res => {this.user =res;this.getAnuncio()});
+    this.usuarioService.getUsuario(localStorage.getItem('userId')).subscribe(res => {this.user =res;this.getAnuncio();this.ayudantiaAceptada()});
     
   }
 
@@ -60,6 +62,8 @@ export class CursosPage implements OnInit {
     this.textoBuscar=texto;
     //console.log(this.anuncios[0].Titulo)
   }
+
+  
 
   async crearCurso() {
 
@@ -144,6 +148,39 @@ export class CursosPage implements OnInit {
         ]
       });
     await alert.present();
+  }
+
+  mensajeAlerta(){
+    this.user.AyudantiaAceptada = false;
+    this.usuarioService.updateUsuario(localStorage.getItem('userId'),this.user);
+    this.authService.logOutUser();
+
+  }
+
+  async ayudantiaAceptada() {
+    if(this.user.AyudantiaAceptada){
+      const alert = await this.alertCtrt.create({
+      cssClass: 'my-custom-class',
+      header: 'Listo! Ya eres ayudante.',
+      message: 'Porfavor, vuelve a iniciar sesión.',
+        buttons: [
+            {
+              text: 'Cerrar sesión',
+              role: 'Ok',
+              cssClass: 'secondary',
+              handler: (blah) => {
+                this.mensajeAlerta();
+                
+                //console.log(blah)
+                
+              }
+            }
+          
+          ]
+        });
+      await alert.present();
+    }
+    
   }
 
   async alert(id) {

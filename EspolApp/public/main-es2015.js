@@ -875,6 +875,8 @@ let AuthService = class AuthService {
                     Cursos: 0,
                     // Verificacion: false,
                     Estado: 'P',
+                    AyudantiaAceptada: false,
+                    Citas: false
                 });
                 resolve(res);
             }).catch(err => reject(err));
@@ -1033,7 +1035,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\whugo\Desktop\taskyApp\EspolApp\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\anava\Documents\TaskyApp\taskyApp\EspolApp\src\main.ts */"./src/main.ts");
 
 
 /***/ })

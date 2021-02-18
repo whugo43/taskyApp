@@ -264,9 +264,15 @@
       var src_app_services_usuario_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! src/app/services/usuario.service */
       "./src/app/services/usuario.service.ts");
+      /* harmony import */
+
+
+      var src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      /*! src/app/services/auth.service */
+      "./src/app/services/auth.service.ts");
 
       var CursosPage = /*#__PURE__*/function () {
-        function CursosPage(cursoService, usuarioService, materiaService, anuncioService, alertCtrt) {
+        function CursosPage(cursoService, usuarioService, materiaService, anuncioService, alertCtrt, authService) {
           _classCallCheck(this, CursosPage);
 
           this.cursoService = cursoService;
@@ -274,6 +280,7 @@
           this.materiaService = materiaService;
           this.anuncioService = anuncioService;
           this.alertCtrt = alertCtrt;
+          this.authService = authService;
           this.cursos = [];
           this.user = new src_app_models_usuarios__WEBPACK_IMPORTED_MODULE_8__["Usuarios"]();
           this.textoBuscar = '';
@@ -296,6 +303,8 @@
               _this.user = res;
 
               _this.getAnuncio();
+
+              _this.ayudantiaAceptada();
             });
           }
         }, {
@@ -441,15 +450,67 @@
             }));
           }
         }, {
-          key: "alert",
-          value: function alert(id) {
+          key: "mensajeAlerta",
+          value: function mensajeAlerta() {
+            this.user.AyudantiaAceptada = false;
+            this.usuarioService.updateUsuario(localStorage.getItem('userId'), this.user);
+            this.authService.logOutUser();
+          }
+        }, {
+          key: "ayudantiaAceptada",
+          value: function ayudantiaAceptada() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
+              var _this5 = this;
+
               var alert;
               return regeneratorRuntime.wrap(function _callee3$(_context3) {
                 while (1) {
                   switch (_context3.prev = _context3.next) {
                     case 0:
-                      _context3.next = 2;
+                      if (!this.user.AyudantiaAceptada) {
+                        _context3.next = 6;
+                        break;
+                      }
+
+                      _context3.next = 3;
+                      return this.alertCtrt.create({
+                        cssClass: 'my-custom-class',
+                        header: 'Listo! Ya eres ayudante.',
+                        message: 'Porfavor, vuelve a iniciar sesión.',
+                        buttons: [{
+                          text: 'Cerrar sesión',
+                          role: 'Ok',
+                          cssClass: 'secondary',
+                          handler: function handler(blah) {
+                            _this5.mensajeAlerta(); //console.log(blah)
+
+                          }
+                        }]
+                      });
+
+                    case 3:
+                      alert = _context3.sent;
+                      _context3.next = 6;
+                      return alert.present();
+
+                    case 6:
+                    case "end":
+                      return _context3.stop();
+                  }
+                }
+              }, _callee3, this);
+            }));
+          }
+        }, {
+          key: "alert",
+          value: function alert(id) {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
+              var alert;
+              return regeneratorRuntime.wrap(function _callee4$(_context4) {
+                while (1) {
+                  switch (_context4.prev = _context4.next) {
+                    case 0:
+                      _context4.next = 2;
                       return this.alertCtrt.create({
                         cssClass: 'my-custom-class',
                         header: "¿Desea eliminar esta publicación?",
@@ -467,16 +528,16 @@
                       });
 
                     case 2:
-                      alert = _context3.sent;
-                      _context3.next = 5;
+                      alert = _context4.sent;
+                      _context4.next = 5;
                       return alert.present();
 
                     case 5:
                     case "end":
-                      return _context3.stop();
+                      return _context4.stop();
                   }
                 }
-              }, _callee3, this);
+              }, _callee4, this);
             }));
           }
         }]);
@@ -495,6 +556,8 @@
           type: src_app_services_anuncios_service__WEBPACK_IMPORTED_MODULE_7__["AnunciosService"]
         }, {
           type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["AlertController"]
+        }, {
+          type: src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_10__["AuthService"]
         }];
       };
 

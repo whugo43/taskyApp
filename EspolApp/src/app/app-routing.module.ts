@@ -171,7 +171,11 @@ const routes: Routes = [
     path: 'editar-grupo/:id',
     loadChildren: () => import('./folder/editar-grupo/editar-grupo.module').then( m => m.EditarGrupoPageModule),
     canActivate:[AuthGuard]
+  },  {
+    path: 'previo-citas',
+    loadChildren: () => import('./folder/previo-citas/previo-citas.module').then( m => m.PrevioCitasPageModule)
   }
+
 
 
 

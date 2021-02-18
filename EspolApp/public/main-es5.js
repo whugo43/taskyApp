@@ -1316,7 +1316,9 @@
                   EsperaPremium: false,
                   Cursos: 0,
                   // Verificacion: false,
-                  Estado: 'P'
+                  Estado: 'P',
+                  AyudantiaAceptada: false,
+                  Citas: false
                 });
 
                 resolve(res);
@@ -1573,7 +1575,7 @@
     /***/
     function _(module, exports, __webpack_require__) {
       module.exports = __webpack_require__(
-      /*! C:\Users\whugo\Desktop\taskyApp\EspolApp\src\main.ts */
+      /*! C:\Users\anava\Documents\TaskyApp\taskyApp\EspolApp\src\main.ts */
       "./src/main.ts");
       /***/
     }

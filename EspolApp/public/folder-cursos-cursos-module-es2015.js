@@ -128,6 +128,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_services_anuncios_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/services/anuncios.service */ "./src/app/services/anuncios.service.ts");
 /* harmony import */ var src_app_models_usuarios__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/models/usuarios */ "./src/app/models/usuarios.ts");
 /* harmony import */ var src_app_services_usuario_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/services/usuario.service */ "./src/app/services/usuario.service.ts");
+/* harmony import */ var src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/services/auth.service */ "./src/app/services/auth.service.ts");
+
 
 
 
@@ -139,12 +141,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let CursosPage = class CursosPage {
-    constructor(cursoService, usuarioService, materiaService, anuncioService, alertCtrt) {
+    constructor(cursoService, usuarioService, materiaService, anuncioService, alertCtrt, authService) {
         this.cursoService = cursoService;
         this.usuarioService = usuarioService;
         this.materiaService = materiaService;
         this.anuncioService = anuncioService;
         this.alertCtrt = alertCtrt;
+        this.authService = authService;
         this.cursos = [];
         this.user = new src_app_models_usuarios__WEBPACK_IMPORTED_MODULE_8__["Usuarios"]();
         this.textoBuscar = '';
@@ -156,7 +159,7 @@ let CursosPage = class CursosPage {
         this.cursoService.getCursos().subscribe(res => this.cursos = res);
         this.userId = localStorage.getItem('userId');
         this.rol = localStorage.getItem('Rol');
-        this.usuarioService.getUsuario(localStorage.getItem('userId')).subscribe(res => { this.user = res; this.getAnuncio(); });
+        this.usuarioService.getUsuario(localStorage.getItem('userId')).subscribe(res => { this.user = res; this.getAnuncio(); this.ayudantiaAceptada(); });
     }
     getAnuncio() {
         this.anuncioService.getAnuncios().subscribe(res => { this.anuncios = res; this.validarPublicacion(); });
@@ -252,6 +255,34 @@ let CursosPage = class CursosPage {
             yield alert.present();
         });
     }
+    mensajeAlerta() {
+        this.user.AyudantiaAceptada = false;
+        this.usuarioService.updateUsuario(localStorage.getItem('userId'), this.user);
+        this.authService.logOutUser();
+    }
+    ayudantiaAceptada() {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            if (this.user.AyudantiaAceptada) {
+                const alert = yield this.alertCtrt.create({
+                    cssClass: 'my-custom-class',
+                    header: 'Listo! Ya eres ayudante.',
+                    message: 'Porfavor, vuelve a iniciar sesión.',
+                    buttons: [
+                        {
+                            text: 'Cerrar sesión',
+                            role: 'Ok',
+                            cssClass: 'secondary',
+                            handler: (blah) => {
+                                this.mensajeAlerta();
+                                //console.log(blah)
+                            }
+                        }
+                    ]
+                });
+                yield alert.present();
+            }
+        });
+    }
     alert(id) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             const alert = yield this.alertCtrt.create({
@@ -283,7 +314,8 @@ CursosPage.ctorParameters = () => [
     { type: src_app_services_usuario_service__WEBPACK_IMPORTED_MODULE_9__["UsuarioService"] },
     { type: src_app_services_materia_solicitud_service__WEBPACK_IMPORTED_MODULE_5__["MateriaSolicitudService"] },
     { type: src_app_services_anuncios_service__WEBPACK_IMPORTED_MODULE_7__["AnunciosService"] },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["AlertController"] }
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["AlertController"] },
+    { type: src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_10__["AuthService"] }
 ];
 CursosPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({

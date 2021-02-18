@@ -57,6 +57,8 @@ export class AuthService {
           Cursos:0,
          // Verificacion: false,
           Estado: 'P',
+          AyudantiaAceptada: false,
+          Citas: false
 
         });
     

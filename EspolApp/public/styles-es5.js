@@ -526,11 +526,11 @@
     /***/
     function _(module, exports, __webpack_require__) {
       __webpack_require__(
-      /*! C:\Users\whugo\Desktop\taskyApp\EspolApp\src\theme\variables.scss */
+      /*! C:\Users\anava\Documents\TaskyApp\taskyApp\EspolApp\src\theme\variables.scss */
       "./src/theme/variables.scss");
 
       module.exports = __webpack_require__(
-      /*! C:\Users\whugo\Desktop\taskyApp\EspolApp\src\global.scss */
+      /*! C:\Users\anava\Documents\TaskyApp\taskyApp\EspolApp\src\global.scss */
       "./src/global.scss");
       /***/
     }
