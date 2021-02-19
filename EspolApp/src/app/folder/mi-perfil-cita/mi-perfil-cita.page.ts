@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+
+import { AngularFireStorage } from 'angularfire2/storage';
+import { AlertController, LoadingController } from '@ionic/angular';
 import { Citas } from 'src/app/models/citas';
 import { CitasService} from 'src/app/services/citas.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { MensajeErrorService } from 'src/app/services/mensaje-error.service';
 @Component({
   selector: 'app-mi-perfil-cita',
   templateUrl: './mi-perfil-cita.page.html',
@@ -16,7 +19,10 @@ export class MiPerfilCitaPage implements OnInit {
   loading: HTMLIonLoadingElement;
 
   constructor(private usuarioService: CitasService,
+              private angularFireStorage: AngularFireStorage,
+              public loadingController: LoadingController,              
               private alertCtrt: AlertController,
+              private mensajeErrorService: MensajeErrorService,
               ) { }
 
   ngOnInit() {
@@ -108,24 +114,22 @@ export class MiPerfilCitaPage implements OnInit {
 
   
   async UpdateUserCompleto(telefono: string, downloadURL:string){
-    this.user.Telefono = telefono;
-    this.user.FotoPerfil = downloadURL;
-    var userId = localStorage.getItem('userId')
-    this.usuarioService.updateUsuario(userId, this.user).
-    then(
-      auth=>{
-        this.loading.dismiss();
-        
-        this.router.navigateByUrl("/perfil")
-       
-       
-      }  
-    ).catch(async error => {
-      this.loading.dismiss();
-      var mensaje=error.code.split('/')[1];
-      const presentarMensaje = this.mensajeErrorService.AuthErrorCodeSpanish(mensaje);
-      this.failedAlert(presentarMensaje)
-    })
+  //  this.user.Telefono = telefono;
+  //  this.user.FotoPerfil = downloadURL;
+  //  var userId = localStorage.getItem('userId')
+  //  this.usuarioService.updateUsuario(userId, this.user).
+  //  then(
+  //    auth=>{
+  //      this.loading.dismiss();
+  //      
+  //      this.router.navigateByUrl("/perfil")     
+  //  }  
+  //  ).catch(async error => {
+  //    this.loading.dismiss();
+  //    var mensaje=error.code.split('/')[1];
+  //    const presentarMensaje = this.mensajeErrorService.AuthErrorCodeSpanish(mensaje);
+  //    this.failedAlert(presentarMensaje)
+  //  })
   }
 
 

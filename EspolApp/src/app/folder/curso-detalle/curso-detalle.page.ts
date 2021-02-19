@@ -34,9 +34,8 @@ export class CursoDetallePage implements OnInit {
   todosCursos = [];
   rol;
 
-  mostrarCIta;
-
   resultado = [];
+  mostrarCita: string;
   constructor(private activateRoute: ActivatedRoute,
               private publicacionesService: PublicacionesService,
               private usuarioService: UsuarioService,

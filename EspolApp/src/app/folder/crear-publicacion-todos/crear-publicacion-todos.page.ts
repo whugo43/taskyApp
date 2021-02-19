@@ -12,7 +12,7 @@ import { AyudantesService } from 'src/app/services/ayudantes.service';
 import { CursosService } from 'src/app/services/cursos.service';
 import { Ayudantes } from 'src/app/models/ayudantes';
 import { Cursos } from 'src/app/models/cursos';
-
+ 
 @Component({
   selector: 'app-crear-publicacion-todos',
   templateUrl: './crear-publicacion-todos.page.html',
@@ -102,7 +102,7 @@ export class CrearPublicacionTodosPage implements OnInit {
       auth=>{
         this.loading.dismiss();
 
-        this.router.navigate(["/publicaciones"])
+        this.router.navigate(["/adopcion"])
       }       
     ).catch(async error => {
       this.loading.dismiss();

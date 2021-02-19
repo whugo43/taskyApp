@@ -28,7 +28,7 @@ export class PublicacionesPage implements OnInit {
 
   mostrarCita;
   //probar: PublicacionesMateria[] = [];
-
+ 
   constructor(private activateRoute: ActivatedRoute,
               private usuarioService: UsuarioService,
               private publicacionesService: PublicacionesService,

@@ -3,8 +3,7 @@
 
     <ion-segment color="tertiary" value="publicaciones" >
 
-
-      <ion-segment-button value="publicaciones" [routerLink]="['/publicaciones']" routerDirection="root">
+<ion-segment-button value="publicaciones" [routerLink]="['/publicaciones']" routerDirection="root">
         <ion-icon name="newspaper-outline" size="large"></ion-icon> 
         <ion-label style="font-size: 14;">Publicaciones</ion-label>
       </ion-segment-button>
@@ -18,8 +17,8 @@
         <ion-icon name="person-circle-outline" size="large"></ion-icon> <ion-label style="font-size: 12px;">Perfil</ion-label>
       </ion-segment-button>
 
-      <ion-segment-button value="citas" *ngIf = "mostrarCita == 'Si'" [routerLink]="['/perfil']" routerDirection="root">
-        <ion-icon name="flame-outline" size="large"></ion-icon> <ion-label style="font-size: 12px;">Citas</ion-label>
+      <ion-segment-button value="adopcion" [routerLink]="['/adopcion']" routerDirection="root">
+        <ion-icon name="paw-outline" size="large"></ion-icon> <ion-label style="font-size: 12px;">Adopcion</ion-label>
       </ion-segment-button>
 
     </ion-segment>

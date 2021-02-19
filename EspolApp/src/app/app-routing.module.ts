@@ -171,7 +171,8 @@ const routes: Routes = [
     path: 'editar-grupo/:id',
     loadChildren: () => import('./folder/editar-grupo/editar-grupo.module').then( m => m.EditarGrupoPageModule),
     canActivate:[AuthGuard]
-  },  {
+  },
+  {
     path: 'previo-citas',
     loadChildren: () => import('./folder/previo-citas/previo-citas.module').then( m => m.PrevioCitasPageModule)
   },
@@ -182,10 +183,27 @@ const routes: Routes = [
   {
     path: 'mi-perfil-cita',
     loadChildren: () => import('./folder/mi-perfil-cita/mi-perfil-cita.module').then( m => m.MiPerfilCitaPageModule)
+  },
+  {
+    path: 'adopcion',
+    loadChildren: () => import('./folder/adopcion/adopcion.module').then( m => m.AdopcionPageModule),
+    canActivate:[AuthGuard]
+  },
+  {
+    path: 'adopcion-crear',
+    loadChildren: () => import('./folder/adopcion-crear/adopcion-crear.module').then( m => m.AdopcionCrearPageModule),
+    canActivate:[AuthGuard]
+  },
+  {
+    path: 'adopcion-editar/:id',
+    loadChildren: () => import('./folder/adopcion-editar/adopcion-editar.module').then( m => m.AdopcionEditarPageModule),
+    canActivate:[AuthGuard]
+  },
+  {
+    path: 'adopcion-detalle/:id/:idUsuario',
+    loadChildren: () => import('./folder/adopcion-detalle/adopcion-detalle.module').then( m => m.AdopcionDetallePageModule),
+    canActivate:[AuthGuard]
   }
-
-
-
 
 ];
 

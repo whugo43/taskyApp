@@ -4,10 +4,11 @@ import { FiltroUsuarioPipe } from './filtro-usuario.pipe';
 import { FiltroPublicacionPipe } from './filtro-publicacion.pipe';
 import { FiltroAnuncioPipe } from './filtro-anuncio.pipe';
 import { FiltroComentariosPipe } from './filtro-comentarios.pipe';
+import { FiltroAdopcionPipe } from './filtro-adopcion.pipe';
 
 
 @NgModule({
-  declarations: [FiltroCursoPipe, FiltroUsuarioPipe, FiltroPublicacionPipe, FiltroAnuncioPipe, FiltroComentariosPipe],
-  exports: [FiltroCursoPipe, FiltroUsuarioPipe, FiltroPublicacionPipe, FiltroAnuncioPipe, FiltroComentariosPipe]
+  declarations: [FiltroCursoPipe, FiltroUsuarioPipe, FiltroPublicacionPipe, FiltroAnuncioPipe, FiltroComentariosPipe, FiltroAdopcionPipe],
+  exports: [FiltroCursoPipe, FiltroUsuarioPipe, FiltroPublicacionPipe, FiltroAnuncioPipe, FiltroComentariosPipe, FiltroAdopcionPipe]
 })
 export class PipesModule { }
