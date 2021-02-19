@@ -22,6 +22,10 @@
         <ion-icon name="person-circle-outline" size="large"></ion-icon> <ion-label style="font-size: 12px;">Perfil</ion-label>
       </ion-segment-button>
 
+      <ion-segment-button value="citas" *ngIf = "mostrarCita == 'Si'" [routerLink]="['/perfil']" routerDirection="root">
+        <ion-icon name="flame-outline" size="large"></ion-icon> <ion-label style="font-size: 12px;">Citas</ion-label>
+      </ion-segment-button>
+
     </ion-segment>
 
   </ion-toolbar>
@@ -54,6 +58,8 @@
     <ion-segment-button value="grupos" [routerLink]="['/grupos',id, nombreCurso]" routerDirection="root">
       <ion-icon name="people-circle-outline" size="large"></ion-icon> <ion-label>Grupos</ion-label>
     </ion-segment-button>
+
+    
 
 
    

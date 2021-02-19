@@ -22,6 +22,10 @@
         <ion-icon name="person-circle-outline" size="large"></ion-icon> <ion-label style="font-size: 12px;">Perfil</ion-label>
       </ion-segment-button>
 
+      <ion-segment-button value="citas" *ngIf = "mostrarCita == 'Si'" [routerLink]="['/perfil']" routerDirection="root">
+        <ion-icon name="flame-outline" size="large"></ion-icon> <ion-label style="font-size: 12px;">Citas</ion-label>
+      </ion-segment-button>
+
   
 
   

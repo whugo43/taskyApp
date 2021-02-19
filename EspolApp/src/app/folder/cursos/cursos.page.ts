@@ -26,6 +26,8 @@ export class CursosPage implements OnInit {
   anuncios: Anuncios[]=[];
   public anuncio: Anuncios=new Anuncios();
 
+  mostrarCita;
+
   constructor(private cursoService: CursosService,
               private usuarioService: UsuarioService,
               public materiaService: MateriaSolicitudService,
@@ -38,6 +40,7 @@ export class CursosPage implements OnInit {
     this.cursoService.getCursos().subscribe(res => this.cursos = res);
     this.userId = localStorage.getItem('userId')
     this.rol = localStorage.getItem('Rol')
+    this.mostrarCita = localStorage.getItem('Citas')
     
     this.usuarioService.getUsuario(localStorage.getItem('userId')).subscribe(res => {this.user =res;this.getAnuncio();this.ayudantiaAceptada()});
     

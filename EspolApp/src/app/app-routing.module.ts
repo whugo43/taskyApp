@@ -174,6 +174,14 @@ const routes: Routes = [
   },  {
     path: 'previo-citas',
     loadChildren: () => import('./folder/previo-citas/previo-citas.module').then( m => m.PrevioCitasPageModule)
+  },
+  {
+    path: 'citas',
+    loadChildren: () => import('./folder/citas/citas.module').then( m => m.CitasPageModule)
+  },
+  {
+    path: 'mi-perfil-cita',
+    loadChildren: () => import('./folder/mi-perfil-cita/mi-perfil-cita.module').then( m => m.MiPerfilCitaPageModule)
   }
 
 

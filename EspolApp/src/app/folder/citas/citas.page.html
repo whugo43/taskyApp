@@ -1,0 +1,52 @@
+<ion-header >
+  <ion-toolbar>
+
+    <ion-segment color="tertiary" value="citas" >
+
+      <ion-segment-button value="publicaciones" [routerLink]="['/publicaciones']" routerDirection="root">
+        <ion-icon name="newspaper-outline" size="large"></ion-icon> 
+        <ion-label style="font-size: 14;">Publicaciones</ion-label>
+      </ion-segment-button>
+      
+      <ion-segment-button value="cursos" [routerLink]="['/cursos']" routerDirection="root">
+        <ion-icon name="library-outline" size="large"></ion-icon> <ion-label style="font-size: 14px;">Cursos</ion-label>
+      </ion-segment-button>
+    
+    
+      <ion-segment-button value="perfil" [routerLink]="['/perfil']" routerDirection="root">
+        <ion-icon name="person-circle-outline" size="large"></ion-icon> <ion-label style="font-size: 12px;">Perfil</ion-label>
+      </ion-segment-button>
+
+      <ion-segment-button value="citas" [routerLink]="['/perfil']" routerDirection="root">
+        <ion-icon name="flame-outline" size="large"></ion-icon> <ion-label style="font-size: 12px;">Biffis</ion-label>
+      </ion-segment-button>
+
+
+    </ion-segment>
+    
+
+  </ion-toolbar>
+
+</ion-header>
+<ion-content>
+
+
+
+    <ion-segment color="tertiary" value="buscar">
+  
+      <ion-segment-button value="buscar" [routerLink]="['/curso-detalle',id, nombreCurso]" routerDirection="root">
+        <ion-icon name="accessibility-outline" size="large"></ion-icon> <ion-label>Buscar</ion-label>
+      </ion-segment-button>
+      
+      <ion-segment-button value="ayudantes" [routerLink]="['/curso-ayudantes',id, nombreCurso]" routerDirection="root">
+        <ion-icon name="chatbubbles-outline" size="large"></ion-icon> <ion-label>Chats</ion-label>
+      </ion-segment-button>
+  
+      <ion-segment-button value="perfil" [routerLink]="['/mi-perfil-cita']" routerDirection="root">
+        <ion-icon name="person-outline" size="large"></ion-icon> <ion-label style="font-size: 12px;">Perfil</ion-label>
+      </ion-segment-button>
+  
+    </ion-segment>
+
+
+</ion-content>

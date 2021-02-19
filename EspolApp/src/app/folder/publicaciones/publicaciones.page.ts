@@ -25,6 +25,8 @@ export class PublicacionesPage implements OnInit {
   rol;
   textoBuscar='';
   publicidad: Publicidad = new Publicidad();
+
+  mostrarCita;
   //probar: PublicacionesMateria[] = [];
 
   constructor(private activateRoute: ActivatedRoute,
@@ -39,6 +41,7 @@ export class PublicacionesPage implements OnInit {
     this.usuarioService.getUsuario( localStorage.getItem('userId')).subscribe(res => this.usuario = res)
    
     this.miId = localStorage.getItem('userId');
+    this.mostrarCita = localStorage.getItem('Citas')
         
     this.rol = localStorage.getItem('Rol')
 

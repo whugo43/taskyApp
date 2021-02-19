@@ -17,8 +17,8 @@
         <ion-icon name="person-circle-outline" size="large"></ion-icon> <ion-label style="font-size: 12px;">Perfil</ion-label>
       </ion-segment-button>
 
-      <ion-segment-button value="citas" [routerLink]="['/perfil']" routerDirection="root">
-        <ion-icon name="heart-circle-outline" size="large"></ion-icon> <ion-label style="font-size: 12px;">Citas</ion-label>
+      <ion-segment-button value="citas" *ngIf = "local" [routerLink]="['/perfil']" routerDirection="root">
+        <ion-icon name="flame-outline" size="large"></ion-icon> <ion-label style="font-size: 12px;">Citas</ion-label>
       </ion-segment-button>
 
 
@@ -30,7 +30,7 @@
 </ion-header>
 <ion-content>
 
-<form #form="ngForm" (ngSubmit)="crearPublicacion(form)">
+<form #form="ngForm" (ngSubmit)="registrarCita(form)">
       <ion-list>  
         
         
@@ -48,24 +48,52 @@
       </ion-card>
       
       <ion-card style="margin-top:15px">
-        <ion-label>Tu sexo: </ion-label>
+        <ion-item>
+          <ion-label>Tu sexo: </ion-label>
           <ion-select required  name='sexo' ngModel>
            
                   <ion-select-option value="M">Chico</ion-select-option>
                   <ion-select-option value="F">Chica</ion-select-option>
           
           </ion-select>
+
+        </ion-item>
+        
   
       </ion-card>
       
     <ion-card style="margin-top:15px">
-      <ion-label>Buscar: </ion-label>
+      <ion-item>
+        <ion-label>Buscar: </ion-label>
         <ion-select required  name='busca' ngModel>
          
                 <ion-select-option value="M">Chicos</ion-select-option>
                 <ion-select-option value="F">Chicas</ion-select-option>
         
         </ion-select>
+
+      </ion-item>
+      
+    </ion-card>
+    
+    <ion-card>
+      <ion-item>
+        <ion-icon name="calendar-outline"></ion-icon>
+        <ion-label style="margin-left:7.5px">Fecha de Nacimiento</ion-label>
+        <ion-datetime value="1996-05-15" name="nacimiento" placeholder="Seleccionar" required ngModel></ion-datetime>
+      </ion-item>
+
+    </ion-card>
+
+    
+
+    <ion-card>
+
+      <ion-item>
+        <ion-icon name="image-outline"></ion-icon> <ion-text style="margin-left:7.5px">Foto de perfil</ion-text>
+      
+        <ion-input type='file' accept="image/*" id="myFileInput" name="foto" (change)="readURL($event);" class="fileInput" ngModel required></ion-input>
+      </ion-item>
 
     </ion-card>
 
@@ -81,3 +109,9 @@
     </form>
 
 </ion-content>
+<style>
+  #myFileInput{
+    position: absolute;
+    opacity: 0;
+  }
+</style>

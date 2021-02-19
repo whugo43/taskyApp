@@ -31,6 +31,9 @@ export class CitasService {
   getCita(id:string){
     return this.citasCollection.doc<Citas>(id).valueChanges();
   }
+  addCita(Citas:Citas,id:string){
+      return this.citasCollection.doc(id).set({...Citas});
+    }
 
   
   

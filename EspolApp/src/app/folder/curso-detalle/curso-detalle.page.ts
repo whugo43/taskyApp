@@ -34,6 +34,8 @@ export class CursoDetallePage implements OnInit {
   todosCursos = [];
   rol;
 
+  mostrarCIta;
+
   resultado = [];
   constructor(private activateRoute: ActivatedRoute,
               private publicacionesService: PublicacionesService,
@@ -47,6 +49,7 @@ export class CursoDetallePage implements OnInit {
     this.usuarioService.getUsuario( localStorage.getItem('userId')).subscribe(res => this.usuario = res)
     this.miId = localStorage.getItem('userId');
     this.rol = localStorage.getItem('Rol')
+    this.mostrarCita = localStorage.getItem('Citas')
     this.activateRoute.paramMap.subscribe(paramMap => {
       const idCurso = paramMap.get('id');
       const nombreCurso = paramMap.get('nombre');

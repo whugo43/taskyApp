@@ -13,6 +13,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class PerfilPage implements OnInit {
   public user: Usuarios=new Usuarios();
   file: File;
+  mostrarCita;
   constructor(private usuarioService: UsuarioService,
               private alertCtrt: AlertController,
               private authService:AuthService
@@ -21,6 +22,8 @@ export class PerfilPage implements OnInit {
   ngOnInit() {
   
     this.usuarioService.getUsuario(localStorage.getItem('userId')).subscribe(res => {this.user =res;});
+    this.mostrarCita = localStorage.getItem('Citas')
+    console.log('citas: ',this.mostrarCita)
 
   }
 

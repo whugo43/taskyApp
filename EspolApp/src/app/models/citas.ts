@@ -8,4 +8,5 @@ export class Citas {
     Foto: string;
     Nacimiento:string;
     Activa:boolean;
+    Usuario:boolean;
 }
