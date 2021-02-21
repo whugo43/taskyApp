@@ -7,4 +7,5 @@ export class Adopcion {
     Usuario: string;
     Fecha: string;
     Visitas: number;
+    Tipo:string;
 }

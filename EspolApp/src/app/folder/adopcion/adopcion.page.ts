@@ -13,6 +13,7 @@ export class AdopcionPage implements OnInit {
   adopciones: Adopcion[] = [];
   miId:string;
   textoBuscar='';
+  opcionfiltro='';
   
 
   constructor(private activateRoute: ActivatedRoute,
@@ -31,6 +32,12 @@ export class AdopcionPage implements OnInit {
     }
       return true;
   }
+
+  onChange(filtro:string){
+    this.opcionfiltro=filtro
+  }
+
+  
   aumentarVisita(id:string,adopcion:Adopcion){
     adopcion.Visitas= adopcion.Visitas + 1
     //console.log("fff", publicacion.Visitas)

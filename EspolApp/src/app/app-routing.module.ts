@@ -203,7 +203,15 @@ const routes: Routes = [
     path: 'adopcion-detalle/:id/:idUsuario',
     loadChildren: () => import('./folder/adopcion-detalle/adopcion-detalle.module').then( m => m.AdopcionDetallePageModule),
     canActivate:[AuthGuard]
+  },  {
+    path: 'veterinarios',
+    loadChildren: () => import('./folder/veterinarios/veterinarios.module').then( m => m.VeterinariosPageModule)
+  },
+  {
+    path: 'detalle-veterinarios',
+    loadChildren: () => import('./folder/detalle-veterinarios/detalle-veterinarios.module').then( m => m.DetalleVeterinariosPageModule)
   }
+
 
 ];
 

@@ -32,15 +32,20 @@
   <ion-card>
     <ion-card-header>
       <label style="margin: auto;display: block;font-size: 27px;font-weight: bold;color:black; align-items: center;text-align: center;">{{adopcion.Titulo}}</label>
+      
     </ion-card-header>
+
+    <ion-img src="{{adopcion.Foto1}}" style="height: 250px;width: 250px;margin: auto;margin-top: 7.5px;"></ion-img>
+
     <ion-card-content style="margin: auto;display: block;font-size: 19px;color:black; align-items: center;text-align: center;">
       {{adopcion.Descripcion}}
      </ion-card-content>
      
-     <ion-img src="{{adopcion.Foto1}}" style="height: 275px;width: 250px;margin: auto;display: block;margin-top: 7.5px;"></ion-img>
+     
 
      <div align="center" style="margin-bottom: 15.5px;">
       <ion-button  expand="full"  expand="full" href="{{adopcion.Foto1}}" style="width: 50px;height: 50px;" color="light"><ion-icon name="expand-outline" size="large" ></ion-icon> </ion-button>
+      <ion-button fill="outline" slot='end'><ion-icon name="eye-outline"></ion-icon><label style="font-size: 12;margin-left: 7.5px;" >{{adopcion.Visitas}}</label></ion-button>
      </div>
     <ng-container >
 

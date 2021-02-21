@@ -29,6 +29,26 @@
 </ion-header>
 
 <ion-content>
+
+  <ion-toolbar>
+
+
+  
+    <ion-segment color="tertiary" value="anuncios">
+
+      
+      <ion-segment-button value="ayudantes" [routerLink]="['/curso-ayudantes',id, nombreCurso]" routerDirection="root">
+        <ion-icon name="fish-outline" size="large"></ion-icon> <ion-label>Mascotas</ion-label>
+      </ion-segment-button>
+  
+      <ion-segment-button value="grupos" [routerLink]="['/grupos',id, nombreCurso]" routerDirection="root">
+        <ion-icon name="heart-circle-outline" size="large"></ion-icon> <ion-label>Veterinarios</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  
+  </ion-toolbar>
+
+
   <ion-searchbar
     color="light" 
     placeholder = "Buscar mascota..."
@@ -36,32 +56,65 @@
 
     (ionChange)="buscar($event)">
     </ion-searchbar>
+
+    <ion-item>
+      <ion-label>Filtrar por:</ion-label> 
+      <ion-select #filtro value= '' placeholder='Seleccione ' (ionChange)='onChange(filtro.value)'>
+        <ion-select-option selected value=''>Todos</ion-select-option>
+        <ion-select-option value='A'>Aves</ion-select-option>
+        <ion-select-option value='G'>Gatos</ion-select-option>
+        <ion-select-option value='P'>Perros</ion-select-option>
+        <ion-select-option value='O'>Otros</ion-select-option>
+      </ion-select>
+    </ion-item>
   
   <ng-container *ngIf="!getDatos()">
     <ng-container *ngFor="let adopcion of adopciones | filtroAdopcion: textoBuscar">
       
-      <ion-card>         
-        <ion-card-header>
-          <ion-item>
-          <ion-card-title (click)='aumentarVisita(adopcion.id,adopcion)'>{{adopcion.Titulo}}</ion-card-title>  
+      <ion-card *ngIf="adopcion.Tipo == opcionfiltro ||  false== opcionfiltro" style="padding: 5px;">
+        <ion-item  (click)='aumentarVisita(adopcion.id,adopcion)'>
+         
+            <img style="height: 50px;width: 50px;margin-right: 7.5px;" src="{{adopcion.Foto1}}">
+  
+          <ion-card-title>{{adopcion.Titulo}}</ion-card-title>  
 
-          <ion-icon *ngIf="miId == adopcion.Usuario" name="create-outline" slot='end'  [routerLink]="['/adopcion-editar',adopcion.id]"></ion-icon>
-          <ion-icon *ngIf="miId == adopcion.Usuario" name="trash-outline" slot='end' color='danger'(click)="alert(adopcion.id)"></ion-icon>
-        </ion-item>
-        </ion-card-header>
-        <ion-card-content (click)='aumentarVisita(adopcion.id,adopcion)'>
+          <ion-avatar *ngIf="adopcion.Tipo == 'P'" slot='end'>
+            <img src="https://firebasestorage.googleapis.com/v0/b/taskyapp01.appspot.com/o/Animales%2Fperrito.png?alt=media&token=93762441-c052-45de-be10-132a71b504c2">
+          </ion-avatar>
+
+          <ion-avatar *ngIf="adopcion.Tipo == 'G'" slot='end'>
+            <img src="https://firebasestorage.googleapis.com/v0/b/taskyapp01.appspot.com/o/Animales%2Fgatito1.png?alt=media&token=981980b5-8200-47e4-b72d-65bbfd921905">
+          </ion-avatar>
+
+          <ion-avatar *ngIf="adopcion.Tipo == 'A'" slot='end'>
+            <img src="https://firebasestorage.googleapis.com/v0/b/taskyapp01.appspot.com/o/Animales%2Fpajaro.PNG?alt=media&token=dff39e42-36c1-4102-8299-164375170f91">
+          </ion-avatar>
+          
+
+
+        </ion-item>       
+        
+        
+          
+
+          
+       
+     
+        <!-- <ion-card-content (click)='aumentarVisita(adopcion.id,adopcion)'>
           {{adopcion.Descripcion}}
         </ion-card-content>
 
-        <ng-container >
-          <ion-item>
+        <ng-container > -->
+          <ion-item *ngIf="miId == adopcion.Usuario">
             
-            <label>{{adopcion.Fecha | date:'yyyy/MM/dd'}}</label>
-            <ion-button fill="outline" slot='end' (click)='aumentarVisita(adopcion.id,adopcion)'><ion-icon name="eye-outline" (click)='aumentarVisita(adopcion.id,adopcion)'></ion-icon><label style="font-size: 12;margin-left: 7.5px;" >{{adopcion.Visitas}}</label></ion-button>
-          
+            <!-- <label>{{adopcion.Fecha | date:'yyyy/MM/dd'}}</label> -->
+            
+            <ion-icon  name="create-outline" slot='end'  [routerLink]="['/adopcion-editar',adopcion.id]"></ion-icon>
+            <ion-icon name="trash-outline" slot='end' color='danger'(click)="alert(adopcion.id)"></ion-icon>
+            <ion-button fill="outline" slot='end' (click)='aumentarVisita(adopcion.id,adopcion)'><ion-icon name="eye-outline"></ion-icon><label style="font-size: 12;margin-left: 7.5px;" >{{adopcion.Visitas}}</label></ion-button>
           </ion-item>
 
-        </ng-container>
+       
         
 
         

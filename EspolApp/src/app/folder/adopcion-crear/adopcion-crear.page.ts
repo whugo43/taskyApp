@@ -59,7 +59,8 @@ export class AdopcionCrearPage implements OnInit {
     this.adopcion.Descripcion = form.value.descripcion
     this.adopcion.Usuario = localStorage.getItem('userId')
     this.adopcion.Fecha = fechaActual.toString(); 
-    this.adopcion.Visitas = 0;   
+    this.adopcion.Visitas = 0;  
+    this.adopcion.Tipo = form.value.tipo; 
     this.guardarArchivo();
     
   }
