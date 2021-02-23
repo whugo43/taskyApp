@@ -58,19 +58,34 @@
 
     <ion-card style="margin-top:15px">
       <ion-item>
-        <ion-label><ion-icon name="image-outline"></ion-icon> <ion-text color="" style="margin-left: 7.5px;">Seleccionar foto</ion-text></ion-label>
-      
-        <ion-input type='file' accept="image/*" id="myFileInput" name="foto1" (change)="readURL1($event);" class="fileInput" ngModel required></ion-input>
+
+        <ion-item>
+          <ion-icon name="image-outline"></ion-icon><ion-text color="" style="margin-left: 7.5px;">Seleccionar foto</ion-text>
+        
+          <ion-input type='file' accept="image/*" id="myFileInput" name="foto1" (change)="readURL1($event);" class="fileInput" ngModel required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="images-outline"></ion-icon><ion-text color="" style="margin-left: 7.5px;">Añadir otra foto</ion-text>
+        
+          <ion-input type='file' accept="image/*" id="myFileInput" name="foto2" (change)="readURL2($event);" class="fileInput" ngModel required></ion-input>
+        </ion-item>
+
+
+
       </ion-item>
+      
 
     </ion-card>
     
-    <ion-card style="margin-top:15px">
+    <ion-card style="margin-top:15px" *ngIf='image!=null'>
+
       <ion-item>
-        <ion-label><ion-icon name="image-outline"></ion-icon> <ion-text color="" style="margin-left: 7.5px;">Seleccionar foto</ion-text></ion-label>
-      
-        <ion-input type='file' accept="image/*" id="myFileInput" name="foto2" (change)="readURL2($event);" class="fileInput" ngModel required></ion-input>
+
+        <ion-img id="blah" [src]="image" alt="your image" style="margin-top:5px;margin-bottom: 5px;height: 250px;width: 250px;"></ion-img>
+        <ion-img id="blah" *ngIf='image1!=null' [src]="image1" alt="your image" style="margin-left: 5px;margin-top:5px;margin-bottom: 5px;height: 250px;width: 250px;"></ion-img>
       </ion-item>
+      
 
     </ion-card>
 
@@ -94,7 +109,7 @@
   </ion-list>
   
 
-    <ion-button  style="width: 150px;margin:auto;" type="submit"  [disabled]="form.invalid" expand="block">
+    <ion-button  style="width: 150px;margin:auto;margin-bottom: 7.5px;" type="submit"  [disabled]="form.invalid" expand="block">
       Guardar
     </ion-button>
   </form>

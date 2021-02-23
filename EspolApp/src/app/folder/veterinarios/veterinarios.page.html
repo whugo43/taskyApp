@@ -1,9 +1,68 @@
-<ion-header>
+<ion-header >
   <ion-toolbar>
-    <ion-title>veterinarios</ion-title>
+
+    <ion-segment color="tertiary" value="adopcion" >
+
+
+      <ion-segment-button value="publicaciones" [routerLink]="['/publicaciones']" routerDirection="root">
+        <ion-icon name="newspaper-outline" size="large"></ion-icon> 
+        <ion-label style="font-size: 14;">Publicaciones</ion-label>
+      </ion-segment-button>
+      
+      <ion-segment-button value="cursos" [routerLink]="['/cursos']" routerDirection="root">
+        <ion-icon name="library-outline" size="large"></ion-icon> <ion-label style="font-size: 14px;">Cursos</ion-label>
+      </ion-segment-button>
+    
+    
+      <ion-segment-button value="perfil" [routerLink]="['/perfil']" routerDirection="root">
+        <ion-icon name="person-circle-outline" size="large"></ion-icon> <ion-label style="font-size: 12px;">Perfil</ion-label>
+      </ion-segment-button>
+
+      <ion-segment-button value="adopcion" [routerLink]="['/adopcion']" routerDirection="root">
+        <ion-icon name="paw-outline" size="large"></ion-icon> <ion-label style="font-size: 12px;">Adopcion</ion-label>
+      </ion-segment-button>
+
+    </ion-segment>
+
   </ion-toolbar>
+
 </ion-header>
 
 <ion-content>
 
+  <ion-toolbar>
+
+
+  
+    <ion-segment color="tertiary" value="veterinarios">
+
+      
+      <ion-segment-button value="mascotas" [routerLink]="['/adopcion']" routerDirection="root">
+        <ion-icon name="fish-outline" size="large"></ion-icon> <ion-label>Mascotas</ion-label>
+      </ion-segment-button>
+  
+      <ion-segment-button value="veterinarios" [routerLink]="['/veterinarios']" routerDirection="root">
+        <ion-icon name="heart-circle-outline" size="large"></ion-icon> <ion-label>Veterinarios</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  
+  </ion-toolbar>
+
+  <ng-container>
+
+    <div style="margin-top: 50px;" align='center'> 
+      <ion-text color="medium">
+
+        <img src="https://firebasestorage.googleapis.com/v0/b/taskyapp01.appspot.com/o/iconos%2FproxVeterinario.png?alt=media&token=44539886-4de0-4b08-9786-4ee4f7175e2c" style="width: 55%; height:62%;" alet="foto">
+        
+        <p style="font-size: 25px;">Próximamente!</p>
+      </ion-text>  
+    </div>
+
+  </ng-container>
+
+
+
 </ion-content>
+
+ 

@@ -35,7 +35,18 @@
       
     </ion-card-header>
 
-    <ion-img src="{{adopcion.Foto1}}" style="height: 250px;width: 250px;margin: auto;margin-top: 7.5px;"></ion-img>
+    <ion-card>
+      <ion-item>
+        <ion-img src="{{adopcion.Foto1}}" style="height: 275px;width: 50%;margin: auto"></ion-img>
+        <ion-img *ngIf='adopcion.Foto2!=""' src="{{adopcion.Foto2}}" style="margin-left:7.5px;height: 275px;width: 50%;"></ion-img>
+  
+      </ion-item>
+
+    </ion-card>
+
+    
+
+    
 
     <ion-card-content style="margin: auto;display: block;font-size: 19px;color:black; align-items: center;text-align: center;">
       {{adopcion.Descripcion}}

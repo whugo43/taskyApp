@@ -34,14 +34,14 @@
 
 
   
-    <ion-segment color="tertiary" value="anuncios">
+    <ion-segment color="tertiary" value="mascotas">
 
       
-      <ion-segment-button value="ayudantes" [routerLink]="['/curso-ayudantes',id, nombreCurso]" routerDirection="root">
+      <ion-segment-button value="mascotas" [routerLink]="['/adopcion']" routerDirection="root">
         <ion-icon name="fish-outline" size="large"></ion-icon> <ion-label>Mascotas</ion-label>
       </ion-segment-button>
   
-      <ion-segment-button value="grupos" [routerLink]="['/grupos',id, nombreCurso]" routerDirection="root">
+      <ion-segment-button value="veterinarios" [routerLink]="['/veterinarios']" routerDirection="root">
         <ion-icon name="heart-circle-outline" size="large"></ion-icon> <ion-label>Veterinarios</ion-label>
       </ion-segment-button>
     </ion-segment>
@@ -74,22 +74,27 @@
       <ion-card *ngIf="adopcion.Tipo == opcionfiltro ||  false== opcionfiltro" style="padding: 5px;">
         <ion-item  (click)='aumentarVisita(adopcion.id,adopcion)'>
          
-            <img style="height: 50px;width: 50px;margin-right: 7.5px;" src="{{adopcion.Foto1}}">
-  
+          <ion-avatar style="height: 50px;width: 50px;margin-right: 7.5px;">
+            <img  src="{{adopcion.Foto1}}">
+          </ion-avatar>
+
+
           <ion-card-title>{{adopcion.Titulo}}</ion-card-title>  
 
-          <ion-avatar *ngIf="adopcion.Tipo == 'P'" slot='end'>
-            <img src="https://firebasestorage.googleapis.com/v0/b/taskyapp01.appspot.com/o/Animales%2Fperrito.png?alt=media&token=93762441-c052-45de-be10-132a71b504c2">
-          </ion-avatar>
-
-          <ion-avatar *ngIf="adopcion.Tipo == 'G'" slot='end'>
-            <img src="https://firebasestorage.googleapis.com/v0/b/taskyapp01.appspot.com/o/Animales%2Fgatito1.png?alt=media&token=981980b5-8200-47e4-b72d-65bbfd921905">
-          </ion-avatar>
-
-          <ion-avatar *ngIf="adopcion.Tipo == 'A'" slot='end'>
-            <img src="https://firebasestorage.googleapis.com/v0/b/taskyapp01.appspot.com/o/Animales%2Fpajaro.PNG?alt=media&token=dff39e42-36c1-4102-8299-164375170f91">
-          </ion-avatar>
           
+          
+            <img *ngIf="adopcion.Tipo == 'P'" slot='end' style = 'width: 45px;height: 45px;' src="https://firebasestorage.googleapis.com/v0/b/taskyapp01.appspot.com/o/Animales%2Fdog.png?alt=media&token=181088e4-85a4-4f4a-a31b-a5e561bd3c23">
+          
+
+          
+          <img *ngIf="adopcion.Tipo == 'G'" slot='end' style = 'width: 45px;height: 45px;' src="https://firebasestorage.googleapis.com/v0/b/taskyapp01.appspot.com/o/Animales%2Fcat.png?alt=media&token=add2efa5-39bc-4fd1-8f33-e245f216ffc1">
+          
+
+          
+          <img  *ngIf="adopcion.Tipo == 'A'" slot='end' style = 'width: 45px;height: 45px;' src="https://firebasestorage.googleapis.com/v0/b/taskyapp01.appspot.com/o/Animales%2Fbird.png?alt=media&token=ab0cbd77-b221-4b10-b315-7fa48777adef">
+          
+          
+          <img slot='end' style = 'width: 45px;height: 45px;' *ngIf="adopcion.Tipo == 'O'" src="https://firebasestorage.googleapis.com/v0/b/taskyapp01.appspot.com/o/Animales%2Fother.png?alt=media&token=349e8158-88d9-442d-a164-32f0c78627ba">
 
 
         </ion-item>       

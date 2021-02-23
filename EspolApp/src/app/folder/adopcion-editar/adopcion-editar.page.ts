@@ -20,6 +20,9 @@ export class AdopcionEditarPage implements OnInit {
   imageSrc2: string | ArrayBuffer;
   id: string;
 
+  image: string;
+  image1: string;
+
   constructor(private angularFireStorage: AngularFireStorage,
     private router: Router,
     private adopcionService: AdopcionService,
@@ -31,7 +34,8 @@ export class AdopcionEditarPage implements OnInit {
     this.activateRoute.paramMap.subscribe(paramMap => {
       const id = paramMap.get('id');
       this.id = id;
-      this.adopcionService.getAdopcion(id).subscribe(res=>this.adopcion = res);
+      this.adopcionService.getAdopcion(id).subscribe(res=>{this.adopcion = res;this.image = res.Foto1;this.image1 = res.Foto2});
+      
     });
   }
   
@@ -43,7 +47,18 @@ export class AdopcionEditarPage implements OnInit {
         reader.onload = e => this.imageSrc = reader.result;
 
         reader.readAsDataURL(this.file1);
+        this.guardarunarchivo(this.file1,1)
     }
+  }
+
+  eliminarFoto2(){
+    this.image1 = '';
+    this.adopcion.Foto2 = '';
+  }
+
+  eliminarFoto1(){
+    this.image = '';
+    this.adopcion.Foto1 = '';
   }
 
   readURL2(event): void {
@@ -54,8 +69,10 @@ export class AdopcionEditarPage implements OnInit {
         reader.onload = e => this.imageSrc2 = reader.result;
 
         reader.readAsDataURL(this.file2);
+        this.guardarunarchivo(this.file2,2)
     }
   }
+
 
   crearAdopcion(form){
     this.presentLoading("Espere por favor...");
@@ -64,9 +81,9 @@ export class AdopcionEditarPage implements OnInit {
     if(this.file1 != null && this.file2 != null){
     this.guardarArchivo();}
     else if(this.file1 != null){
-      this.guardarunarchivo(this.file1, 1);}
+      this.guardarunarchivo(this.file1, 1);this.registroCompleto()}
     else if(this.file2 != null){
-        this.guardarunarchivo(this.file2, 2);}  
+        this.guardarunarchivo(this.file2, 2);this.registroCompleto()}  
     else{
       this.registroCompleto()
     }
@@ -82,9 +99,9 @@ export class AdopcionEditarPage implements OnInit {
       data=>{
         data.ref.getDownloadURL().then(
         downloadURL => {
-          if(num == 1){this.adopcion.Foto1=downloadURL;}
-          else if(num == 2){this.adopcion.Foto2=downloadURL;}
-          this.registroCompleto()
+          if(num == 1){this.adopcion.Foto1=downloadURL;this.image=downloadURL;}
+          else if(num == 2){this.adopcion.Foto2=downloadURL;this.image1=downloadURL;}
+          
           
              
         })

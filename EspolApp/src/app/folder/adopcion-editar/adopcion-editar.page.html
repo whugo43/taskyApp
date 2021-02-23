@@ -58,18 +58,48 @@
 
     <ion-card style="margin-top:15px">
       <ion-item>
-        <ion-label><ion-icon name="image-outline"></ion-icon> <ion-text color="" style="margin-left: 7.5px;">Seleccionar foto</ion-text></ion-label>
+
+        <ion-item>
+          <ion-icon name="image-outline"></ion-icon> <ion-text color="" style="margin-left: 7.5px;">Editar foto 1</ion-text>
       
         <ion-input type='file' accept="image/*" id="myFileInput" name="foto1" (change)="readURL1($event);" class="fileInput" ngModel></ion-input>
+
+        </ion-item>
+
+        <ion-item slot='end' *ngIf='adopcion.Foto2==""'>
+          <ion-icon name="images-outline"></ion-icon> <ion-text color="" style="margin-left: 7.5px;">Añadir otra foto</ion-text>
+      
+          <ion-input type='file' accept="image/*" id="myFileInput" name="foto2" (change)="readURL2($event);" class="fileInput" ngModel></ion-input>
+
+        </ion-item>
+
+        <ion-item slot='end' *ngIf='adopcion.Foto2!=""'>
+          <ion-icon name="images-outline"></ion-icon> <ion-text color="" style="margin-left: 7.5px;">Editar foto 2</ion-text>
+      
+          <ion-input type='file' accept="image/*" id="myFileInput" name="foto2" (change)="readURL2($event);" class="fileInput" ngModel></ion-input>
+
+        </ion-item>
+        
+      
+        
+
       </ion-item>
 
     </ion-card>
     
     <ion-card style="margin-top:15px">
       <ion-item>
-        <ion-label><ion-icon name="image-outline"></ion-icon> <ion-text color="" style="margin-left: 7.5px;">Seleccionar foto</ion-text></ion-label>
+
+        <ion-img id="blah" [src]="image" alt="your image" style="margin-top:5px;margin-bottom: 5px;height: 250px;width: 250px;"></ion-img>
       
-        <ion-input type='file' accept="image/*" id="myFileInput" name="foto2" (change)="readURL2($event);" class="fileInput" ngModel></ion-input>
+        
+        <ng-container *ngIf='image1!=""'>
+          <ion-img id="blah" [src]="image1" alt="your image" style="margin-left: 5px;margin-top:5px;margin-bottom: 5px;height: 250px;width: 250px;"></ion-img>
+          <ion-icon *ngIf='image1!=""' size="large" color='danger' name="trash-outline" (click)="eliminarFoto2()"></ion-icon>
+        </ng-container>
+        
+
+        
       </ion-item>
 
     </ion-card>

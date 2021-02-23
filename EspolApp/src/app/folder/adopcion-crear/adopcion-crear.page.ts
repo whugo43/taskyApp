@@ -19,6 +19,8 @@ export class AdopcionCrearPage implements OnInit {
   file1: File;
   loading: any;
   imageSrc2: string | ArrayBuffer;
+  public image: File;
+  public image1: File;
 
   constructor(private angularFireStorage: AngularFireStorage,
     private router: Router,
@@ -38,8 +40,35 @@ export class AdopcionCrearPage implements OnInit {
         reader.onload = e => this.imageSrc = reader.result;
 
         reader.readAsDataURL(this.file1);
+        this.guardarArchivo1();
     }
   }
+
+  guardarArchivo1(){
+    var storageRef = this.angularFireStorage.storage.ref()  
+    storageRef.child(this.file1.name).put(this.file1)
+    .then(
+      data=>{
+        data.ref.getDownloadURL().then(
+        downloadURL => {this.adopcion.Foto1=downloadURL;
+        this.image = downloadURL;
+
+
+
+          
+                        
+        
+        
+        })
+        .catch(err=>{
+          this.loading.dismiss();
+          console.log('error')});
+        }
+    )     
+
+  }
+
+  
 
   readURL2(event): void {
     if (event.target.files && event.target.files[0]) {
@@ -49,7 +78,25 @@ export class AdopcionCrearPage implements OnInit {
         reader.onload = e => this.imageSrc2 = reader.result;
 
         reader.readAsDataURL(this.file2);
+        this.guardarArchivo2();
     }
+  }
+
+  guardarArchivo2(){
+    var storageRef = this.angularFireStorage.storage.ref()  
+    storageRef.child(this.file2.name).put(this.file2)
+    .then(
+      data=>{
+        data.ref.getDownloadURL().then(
+        downloadURL => {this.adopcion.Foto2=downloadURL;
+                      this.image1 = downloadURL;
+                                                   
+        })
+        .catch(err=>{
+          this.loading.dismiss();
+          console.log('error')});
+        }
+    )
   }
 
   crearAdopcion(form){
@@ -61,42 +108,12 @@ export class AdopcionCrearPage implements OnInit {
     this.adopcion.Fecha = fechaActual.toString(); 
     this.adopcion.Visitas = 0;  
     this.adopcion.Tipo = form.value.tipo; 
-    this.guardarArchivo();
+    this.registroCompleto();
     
   }
 
   guardarArchivo(){
-    var storageRef = this.angularFireStorage.storage.ref()  
-    storageRef.child(this.file1.name).put(this.file1)
-    .then(
-      data=>{
-        data.ref.getDownloadURL().then(
-        downloadURL => {this.adopcion.Foto1=downloadURL;
-
-
-
-          var storageRef = this.angularFireStorage.storage.ref()  
-          storageRef.child(this.file2.name).put(this.file2)
-          .then(
-            data=>{
-              data.ref.getDownloadURL().then(
-              downloadURL => {this.adopcion.Foto2=downloadURL;
-                              this.registroCompleto()                            
-              })
-              .catch(err=>{
-                this.loading.dismiss();
-                console.log('error')});
-              }
-          )
-                        
-        
-        
-        })
-        .catch(err=>{
-          this.loading.dismiss();
-          console.log('error')});
-        }
-    )     
+    
   }
 
   registroCompleto(){
