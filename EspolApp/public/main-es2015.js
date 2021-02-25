@@ -463,6 +463,46 @@ const routes = [
         path: 'editar-grupo/:id',
         loadChildren: () => Promise.all(/*! import() | folder-editar-grupo-editar-grupo-module */[__webpack_require__.e("common"), __webpack_require__.e("folder-editar-grupo-editar-grupo-module")]).then(__webpack_require__.bind(null, /*! ./folder/editar-grupo/editar-grupo.module */ "./src/app/folder/editar-grupo/editar-grupo.module.ts")).then(m => m.EditarGrupoPageModule),
         canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]]
+    },
+    {
+        path: 'previo-citas',
+        loadChildren: () => Promise.all(/*! import() | folder-previo-citas-previo-citas-module */[__webpack_require__.e("common"), __webpack_require__.e("folder-previo-citas-previo-citas-module")]).then(__webpack_require__.bind(null, /*! ./folder/previo-citas/previo-citas.module */ "./src/app/folder/previo-citas/previo-citas.module.ts")).then(m => m.PrevioCitasPageModule)
+    },
+    {
+        path: 'citas',
+        loadChildren: () => __webpack_require__.e(/*! import() | folder-citas-citas-module */ "folder-citas-citas-module").then(__webpack_require__.bind(null, /*! ./folder/citas/citas.module */ "./src/app/folder/citas/citas.module.ts")).then(m => m.CitasPageModule)
+    },
+    {
+        path: 'mi-perfil-cita',
+        loadChildren: () => Promise.all(/*! import() | folder-mi-perfil-cita-mi-perfil-cita-module */[__webpack_require__.e("common"), __webpack_require__.e("folder-mi-perfil-cita-mi-perfil-cita-module")]).then(__webpack_require__.bind(null, /*! ./folder/mi-perfil-cita/mi-perfil-cita.module */ "./src/app/folder/mi-perfil-cita/mi-perfil-cita.module.ts")).then(m => m.MiPerfilCitaPageModule)
+    },
+    {
+        path: 'adopcion',
+        loadChildren: () => Promise.all(/*! import() | folder-adopcion-adopcion-module */[__webpack_require__.e("common"), __webpack_require__.e("folder-adopcion-adopcion-module")]).then(__webpack_require__.bind(null, /*! ./folder/adopcion/adopcion.module */ "./src/app/folder/adopcion/adopcion.module.ts")).then(m => m.AdopcionPageModule),
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]]
+    },
+    {
+        path: 'adopcion-crear',
+        loadChildren: () => Promise.all(/*! import() | folder-adopcion-crear-adopcion-crear-module */[__webpack_require__.e("common"), __webpack_require__.e("folder-adopcion-crear-adopcion-crear-module")]).then(__webpack_require__.bind(null, /*! ./folder/adopcion-crear/adopcion-crear.module */ "./src/app/folder/adopcion-crear/adopcion-crear.module.ts")).then(m => m.AdopcionCrearPageModule),
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]]
+    },
+    {
+        path: 'adopcion-editar/:id',
+        loadChildren: () => Promise.all(/*! import() | folder-adopcion-editar-adopcion-editar-module */[__webpack_require__.e("common"), __webpack_require__.e("folder-adopcion-editar-adopcion-editar-module")]).then(__webpack_require__.bind(null, /*! ./folder/adopcion-editar/adopcion-editar.module */ "./src/app/folder/adopcion-editar/adopcion-editar.module.ts")).then(m => m.AdopcionEditarPageModule),
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]]
+    },
+    {
+        path: 'adopcion-detalle/:id/:idUsuario',
+        loadChildren: () => Promise.all(/*! import() | folder-adopcion-detalle-adopcion-detalle-module */[__webpack_require__.e("common"), __webpack_require__.e("folder-adopcion-detalle-adopcion-detalle-module")]).then(__webpack_require__.bind(null, /*! ./folder/adopcion-detalle/adopcion-detalle.module */ "./src/app/folder/adopcion-detalle/adopcion-detalle.module.ts")).then(m => m.AdopcionDetallePageModule),
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]]
+    },
+    {
+        path: 'veterinarios',
+        loadChildren: () => __webpack_require__.e(/*! import() | folder-veterinarios-veterinarios-module */ "folder-veterinarios-veterinarios-module").then(__webpack_require__.bind(null, /*! ./folder/veterinarios/veterinarios.module */ "./src/app/folder/veterinarios/veterinarios.module.ts")).then(m => m.VeterinariosPageModule)
+    },
+    {
+        path: 'detalle-veterinarios',
+        loadChildren: () => __webpack_require__.e(/*! import() | folder-detalle-veterinarios-detalle-veterinarios-module */ "folder-detalle-veterinarios-detalle-veterinarios-module").then(__webpack_require__.bind(null, /*! ./folder/detalle-veterinarios/detalle-veterinarios.module */ "./src/app/folder/detalle-veterinarios/detalle-veterinarios.module.ts")).then(m => m.DetalleVeterinariosPageModule)
     }
 ];
 let AppRoutingModule = class AppRoutingModule {

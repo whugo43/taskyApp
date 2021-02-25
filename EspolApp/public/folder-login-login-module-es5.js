@@ -290,6 +290,12 @@
                           localStorage.setItem('Rol', res.Rol);
                           localStorage.setItem('Telefono', res.Telefono);
 
+                          if (res.Citas) {
+                            localStorage.setItem('Citas', 'Si');
+                          } else {
+                            localStorage.setItem('Citas', 'No');
+                          }
+
                           if (localStorage.getItem('Estado') == "P") {
                             _this.router.navigateByUrl('/pendiente');
                           } else if (localStorage.getItem('Estado') == "A") {

@@ -569,6 +569,109 @@
           });
         },
         canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]]
+      }, {
+        path: 'previo-citas',
+        loadChildren: function loadChildren() {
+          return Promise.all(
+          /*! import() | folder-previo-citas-previo-citas-module */
+          [__webpack_require__.e("common"), __webpack_require__.e("folder-previo-citas-previo-citas-module")]).then(__webpack_require__.bind(null,
+          /*! ./folder/previo-citas/previo-citas.module */
+          "./src/app/folder/previo-citas/previo-citas.module.ts")).then(function (m) {
+            return m.PrevioCitasPageModule;
+          });
+        }
+      }, {
+        path: 'citas',
+        loadChildren: function loadChildren() {
+          return __webpack_require__.e(
+          /*! import() | folder-citas-citas-module */
+          "folder-citas-citas-module").then(__webpack_require__.bind(null,
+          /*! ./folder/citas/citas.module */
+          "./src/app/folder/citas/citas.module.ts")).then(function (m) {
+            return m.CitasPageModule;
+          });
+        }
+      }, {
+        path: 'mi-perfil-cita',
+        loadChildren: function loadChildren() {
+          return Promise.all(
+          /*! import() | folder-mi-perfil-cita-mi-perfil-cita-module */
+          [__webpack_require__.e("common"), __webpack_require__.e("folder-mi-perfil-cita-mi-perfil-cita-module")]).then(__webpack_require__.bind(null,
+          /*! ./folder/mi-perfil-cita/mi-perfil-cita.module */
+          "./src/app/folder/mi-perfil-cita/mi-perfil-cita.module.ts")).then(function (m) {
+            return m.MiPerfilCitaPageModule;
+          });
+        }
+      }, {
+        path: 'adopcion',
+        loadChildren: function loadChildren() {
+          return Promise.all(
+          /*! import() | folder-adopcion-adopcion-module */
+          [__webpack_require__.e("common"), __webpack_require__.e("folder-adopcion-adopcion-module")]).then(__webpack_require__.bind(null,
+          /*! ./folder/adopcion/adopcion.module */
+          "./src/app/folder/adopcion/adopcion.module.ts")).then(function (m) {
+            return m.AdopcionPageModule;
+          });
+        },
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]]
+      }, {
+        path: 'adopcion-crear',
+        loadChildren: function loadChildren() {
+          return Promise.all(
+          /*! import() | folder-adopcion-crear-adopcion-crear-module */
+          [__webpack_require__.e("common"), __webpack_require__.e("folder-adopcion-crear-adopcion-crear-module")]).then(__webpack_require__.bind(null,
+          /*! ./folder/adopcion-crear/adopcion-crear.module */
+          "./src/app/folder/adopcion-crear/adopcion-crear.module.ts")).then(function (m) {
+            return m.AdopcionCrearPageModule;
+          });
+        },
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]]
+      }, {
+        path: 'adopcion-editar/:id',
+        loadChildren: function loadChildren() {
+          return Promise.all(
+          /*! import() | folder-adopcion-editar-adopcion-editar-module */
+          [__webpack_require__.e("common"), __webpack_require__.e("folder-adopcion-editar-adopcion-editar-module")]).then(__webpack_require__.bind(null,
+          /*! ./folder/adopcion-editar/adopcion-editar.module */
+          "./src/app/folder/adopcion-editar/adopcion-editar.module.ts")).then(function (m) {
+            return m.AdopcionEditarPageModule;
+          });
+        },
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]]
+      }, {
+        path: 'adopcion-detalle/:id/:idUsuario',
+        loadChildren: function loadChildren() {
+          return Promise.all(
+          /*! import() | folder-adopcion-detalle-adopcion-detalle-module */
+          [__webpack_require__.e("common"), __webpack_require__.e("folder-adopcion-detalle-adopcion-detalle-module")]).then(__webpack_require__.bind(null,
+          /*! ./folder/adopcion-detalle/adopcion-detalle.module */
+          "./src/app/folder/adopcion-detalle/adopcion-detalle.module.ts")).then(function (m) {
+            return m.AdopcionDetallePageModule;
+          });
+        },
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]]
+      }, {
+        path: 'veterinarios',
+        loadChildren: function loadChildren() {
+          return __webpack_require__.e(
+          /*! import() | folder-veterinarios-veterinarios-module */
+          "folder-veterinarios-veterinarios-module").then(__webpack_require__.bind(null,
+          /*! ./folder/veterinarios/veterinarios.module */
+          "./src/app/folder/veterinarios/veterinarios.module.ts")).then(function (m) {
+            return m.VeterinariosPageModule;
+          });
+        }
+      }, {
+        path: 'detalle-veterinarios',
+        loadChildren: function loadChildren() {
+          return __webpack_require__.e(
+          /*! import() | folder-detalle-veterinarios-detalle-veterinarios-module */
+          "folder-detalle-veterinarios-detalle-veterinarios-module").then(__webpack_require__.bind(null,
+          /*! ./folder/detalle-veterinarios/detalle-veterinarios.module */
+          "./src/app/folder/detalle-veterinarios/detalle-veterinarios.module.ts")).then(function (m) {
+            return m.DetalleVeterinariosPageModule;
+          });
+        }
       }];
 
       var AppRoutingModule = function AppRoutingModule() {

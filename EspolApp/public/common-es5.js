@@ -664,6 +664,33 @@
     },
 
     /***/
+    "./src/app/models/adopcion.ts":
+    /*!************************************!*\
+      !*** ./src/app/models/adopcion.ts ***!
+      \************************************/
+
+    /*! exports provided: Adopcion */
+
+    /***/
+    function srcAppModelsAdopcionTs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "Adopcion", function () {
+        return Adopcion;
+      });
+
+      var Adopcion = function Adopcion() {
+        _classCallCheck(this, Adopcion);
+      };
+      /***/
+
+    },
+
+    /***/
     "./src/app/models/ayudantes.ts":
     /*!*************************************!*\
       !*** ./src/app/models/ayudantes.ts ***!
@@ -685,6 +712,33 @@
 
       var Ayudantes = function Ayudantes() {
         _classCallCheck(this, Ayudantes);
+      };
+      /***/
+
+    },
+
+    /***/
+    "./src/app/models/citas.ts":
+    /*!*********************************!*\
+      !*** ./src/app/models/citas.ts ***!
+      \*********************************/
+
+    /*! exports provided: Citas */
+
+    /***/
+    function srcAppModelsCitasTs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "Citas", function () {
+        return Citas;
+      });
+
+      var Citas = function Citas() {
+        _classCallCheck(this, Citas);
       };
       /***/
 
@@ -823,6 +877,66 @@
       };
       /***/
 
+    },
+
+    /***/
+    "./src/app/pipes/filtro-adopcion.pipe.ts":
+    /*!***********************************************!*\
+      !*** ./src/app/pipes/filtro-adopcion.pipe.ts ***!
+      \***********************************************/
+
+    /*! exports provided: FiltroAdopcionPipe */
+
+    /***/
+    function srcAppPipesFiltroAdopcionPipeTs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "FiltroAdopcionPipe", function () {
+        return FiltroAdopcionPipe;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "./node_modules/tslib/tslib.es6.js");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
+      var FiltroAdopcionPipe = /*#__PURE__*/function () {
+        function FiltroAdopcionPipe() {
+          _classCallCheck(this, FiltroAdopcionPipe);
+        }
+
+        _createClass(FiltroAdopcionPipe, [{
+          key: "transform",
+          value: function transform(adopcion, texto) {
+            if (texto.length === 0) {
+              return adopcion;
+            }
+
+            texto = texto.toLocaleLowerCase();
+            return adopcion.filter(function (adopcion) {
+              return adopcion.Descripcion.toLocaleLowerCase().includes(texto) || adopcion.Titulo.toLocaleLowerCase().includes(texto);
+            });
+          }
+        }]);
+
+        return FiltroAdopcionPipe;
+      }();
+
+      FiltroAdopcionPipe = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({
+        name: 'filtroAdopcion'
+      })], FiltroAdopcionPipe);
+      /***/
     },
 
     /***/
@@ -1180,15 +1294,129 @@
       var _filtro_comentarios_pipe__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! ./filtro-comentarios.pipe */
       "./src/app/pipes/filtro-comentarios.pipe.ts");
+      /* harmony import */
+
+
+      var _filtro_adopcion_pipe__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! ./filtro-adopcion.pipe */
+      "./src/app/pipes/filtro-adopcion.pipe.ts");
 
       var PipesModule = function PipesModule() {
         _classCallCheck(this, PipesModule);
       };
 
       PipesModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_filtro_curso_pipe__WEBPACK_IMPORTED_MODULE_2__["FiltroCursoPipe"], _filtro_usuario_pipe__WEBPACK_IMPORTED_MODULE_3__["FiltroUsuarioPipe"], _filtro_publicacion_pipe__WEBPACK_IMPORTED_MODULE_4__["FiltroPublicacionPipe"], _filtro_anuncio_pipe__WEBPACK_IMPORTED_MODULE_5__["FiltroAnuncioPipe"], _filtro_comentarios_pipe__WEBPACK_IMPORTED_MODULE_6__["FiltroComentariosPipe"]],
-        exports: [_filtro_curso_pipe__WEBPACK_IMPORTED_MODULE_2__["FiltroCursoPipe"], _filtro_usuario_pipe__WEBPACK_IMPORTED_MODULE_3__["FiltroUsuarioPipe"], _filtro_publicacion_pipe__WEBPACK_IMPORTED_MODULE_4__["FiltroPublicacionPipe"], _filtro_anuncio_pipe__WEBPACK_IMPORTED_MODULE_5__["FiltroAnuncioPipe"], _filtro_comentarios_pipe__WEBPACK_IMPORTED_MODULE_6__["FiltroComentariosPipe"]]
+        declarations: [_filtro_curso_pipe__WEBPACK_IMPORTED_MODULE_2__["FiltroCursoPipe"], _filtro_usuario_pipe__WEBPACK_IMPORTED_MODULE_3__["FiltroUsuarioPipe"], _filtro_publicacion_pipe__WEBPACK_IMPORTED_MODULE_4__["FiltroPublicacionPipe"], _filtro_anuncio_pipe__WEBPACK_IMPORTED_MODULE_5__["FiltroAnuncioPipe"], _filtro_comentarios_pipe__WEBPACK_IMPORTED_MODULE_6__["FiltroComentariosPipe"], _filtro_adopcion_pipe__WEBPACK_IMPORTED_MODULE_7__["FiltroAdopcionPipe"]],
+        exports: [_filtro_curso_pipe__WEBPACK_IMPORTED_MODULE_2__["FiltroCursoPipe"], _filtro_usuario_pipe__WEBPACK_IMPORTED_MODULE_3__["FiltroUsuarioPipe"], _filtro_publicacion_pipe__WEBPACK_IMPORTED_MODULE_4__["FiltroPublicacionPipe"], _filtro_anuncio_pipe__WEBPACK_IMPORTED_MODULE_5__["FiltroAnuncioPipe"], _filtro_comentarios_pipe__WEBPACK_IMPORTED_MODULE_6__["FiltroComentariosPipe"], _filtro_adopcion_pipe__WEBPACK_IMPORTED_MODULE_7__["FiltroAdopcionPipe"]]
       })], PipesModule);
+      /***/
+    },
+
+    /***/
+    "./src/app/services/adopcion.service.ts":
+    /*!**********************************************!*\
+      !*** ./src/app/services/adopcion.service.ts ***!
+      \**********************************************/
+
+    /*! exports provided: AdopcionService */
+
+    /***/
+    function srcAppServicesAdopcionServiceTs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "AdopcionService", function () {
+        return AdopcionService;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "./node_modules/tslib/tslib.es6.js");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      /* harmony import */
+
+
+      var angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! angularfire2/firestore */
+      "./node_modules/angularfire2/firestore/index.js");
+      /* harmony import */
+
+
+      var angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__);
+      /* harmony import */
+
+
+      var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! rxjs/operators */
+      "./node_modules/rxjs/_esm2015/operators/index.js");
+
+      var AdopcionService = /*#__PURE__*/function () {
+        function AdopcionService(firestore) {
+          _classCallCheck(this, AdopcionService);
+
+          this.AdopcionCollection = firestore.collection('Adopcion', function (ref) {
+            return ref.orderBy("Fecha", "desc");
+          });
+          this.Adopcion = this.AdopcionCollection.snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (actions) {
+            return actions.map(function (a) {
+              var data = a.payload.doc.data();
+              var id = a.payload.doc.id;
+              return Object.assign({
+                id: id
+              }, data);
+            });
+          }));
+        }
+
+        _createClass(AdopcionService, [{
+          key: "getAdopciones",
+          value: function getAdopciones() {
+            return this.Adopcion;
+          }
+        }, {
+          key: "getAdopcion",
+          value: function getAdopcion(id) {
+            return this.AdopcionCollection.doc(id).valueChanges();
+          }
+        }, {
+          key: "addAdopcion",
+          value: function addAdopcion(Adopcion) {
+            return this.AdopcionCollection.add(Object.assign({}, Adopcion));
+          }
+        }, {
+          key: "updateAdopcion",
+          value: function updateAdopcion(id, Adopcion) {
+            return this.AdopcionCollection.doc(id).update(Object.assign({}, Adopcion));
+          }
+        }, {
+          key: "removeAdopcion",
+          value: function removeAdopcion(id) {
+            return this.AdopcionCollection.doc(id)["delete"]();
+          }
+        }]);
+
+        return AdopcionService;
+      }();
+
+      AdopcionService.ctorParameters = function () {
+        return [{
+          type: angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"]
+        }];
+      };
+
+      AdopcionService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+      })], AdopcionService);
       /***/
     },
 
@@ -1298,6 +1526,102 @@
       AyudantesService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
         providedIn: 'root'
       })], AyudantesService);
+      /***/
+    },
+
+    /***/
+    "./src/app/services/citas.service.ts":
+    /*!*******************************************!*\
+      !*** ./src/app/services/citas.service.ts ***!
+      \*******************************************/
+
+    /*! exports provided: CitasService */
+
+    /***/
+    function srcAppServicesCitasServiceTs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "CitasService", function () {
+        return CitasService;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "./node_modules/tslib/tslib.es6.js");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      /* harmony import */
+
+
+      var angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! angularfire2/firestore */
+      "./node_modules/angularfire2/firestore/index.js");
+      /* harmony import */
+
+
+      var angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__);
+      /* harmony import */
+
+
+      var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! rxjs/operators */
+      "./node_modules/rxjs/_esm2015/operators/index.js");
+
+      var CitasService = /*#__PURE__*/function () {
+        function CitasService(firestore) {
+          _classCallCheck(this, CitasService);
+
+          this.citasCollection = firestore.collection('Citas');
+          this.citas = this.citasCollection.snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (actions) {
+            return actions.map(function (a) {
+              var data = a.payload.doc.data();
+              var id = a.payload.doc.id;
+              return Object.assign({
+                id: id
+              }, data);
+            });
+          }));
+        }
+
+        _createClass(CitasService, [{
+          key: "getCitas",
+          value: function getCitas() {
+            return this.citas;
+          }
+        }, {
+          key: "getCita",
+          value: function getCita(id) {
+            return this.citasCollection.doc(id).valueChanges();
+          }
+        }, {
+          key: "addCita",
+          value: function addCita(Citas, id) {
+            return this.citasCollection.doc(id).set(Object.assign({}, Citas));
+          }
+        }]);
+
+        return CitasService;
+      }();
+
+      CitasService.ctorParameters = function () {
+        return [{
+          type: angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"]
+        }];
+      };
+
+      CitasService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+      })], CitasService);
       /***/
     },
 
