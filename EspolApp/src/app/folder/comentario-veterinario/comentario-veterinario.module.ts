@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { VeterinariosPageRoutingModule } from './veterinarios-routing.module';
+import { ComentarioVeterinarioPageRoutingModule } from './comentario-veterinario-routing.module';
 
-import { VeterinariosPage } from './veterinarios.page';
+import { ComentarioVeterinarioPage } from './comentario-veterinario.page';
 import { PipesModule } from 'src/app/pipes/pipes.module';
 
 @NgModule({
@@ -15,8 +15,8 @@ import { PipesModule } from 'src/app/pipes/pipes.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    VeterinariosPageRoutingModule
+    ComentarioVeterinarioPageRoutingModule
   ],
-  declarations: [VeterinariosPage]
+  declarations: [ComentarioVeterinarioPage]
 })
-export class VeterinariosPageModule {}
+export class ComentarioVeterinarioPageModule {}

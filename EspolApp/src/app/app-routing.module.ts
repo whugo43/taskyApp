@@ -203,14 +203,28 @@ const routes: Routes = [
     path: 'adopcion-detalle/:id/:idUsuario',
     loadChildren: () => import('./folder/adopcion-detalle/adopcion-detalle.module').then( m => m.AdopcionDetallePageModule),
     canActivate:[AuthGuard]
-  },  {
+  },
+  {
     path: 'veterinarios',
-    loadChildren: () => import('./folder/veterinarios/veterinarios.module').then( m => m.VeterinariosPageModule)
+    loadChildren: () => import('./folder/veterinarios/veterinarios.module').then( m => m.VeterinariosPageModule),
+    canActivate:[AuthGuard]
   },
   {
     path: 'detalle-veterinarios',
-    loadChildren: () => import('./folder/detalle-veterinarios/detalle-veterinarios.module').then( m => m.DetalleVeterinariosPageModule)
+    loadChildren: () => import('./folder/detalle-veterinarios/detalle-veterinarios.module').then( m => m.DetalleVeterinariosPageModule),
+    canActivate:[AuthGuard]
+  },
+  {
+    path: 'veterinario-detalle/:id',
+    loadChildren: () => import('./folder/veterinario-detalle/veterinario-detalle.module').then( m => m.VeterinarioDetallePageModule),
+    canActivate:[AuthGuard]
+  },
+  {
+    path: 'comentario-veterinario/:id',
+    loadChildren: () => import('./folder/comentario-veterinario/comentario-veterinario.module').then( m => m.ComentarioVeterinarioPageModule),
+    canActivate:[AuthGuard]
   }
+
 
 
 ];
