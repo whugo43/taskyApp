@@ -769,6 +769,45 @@ FiltroUsuarioPipe = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 /***/ }),
 
+/***/ "./src/app/pipes/filtro-veterinarios.pipe.ts":
+/*!***************************************************!*\
+  !*** ./src/app/pipes/filtro-veterinarios.pipe.ts ***!
+  \***************************************************/
+/*! exports provided: FiltroVeterinariosPipe */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FiltroVeterinariosPipe", function() { return FiltroVeterinariosPipe; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
+
+let FiltroVeterinariosPipe = class FiltroVeterinariosPipe {
+    transform(usuarios, texto) {
+        if (texto.length === 0) {
+            return usuarios;
+        }
+        texto = texto.toLocaleLowerCase();
+        return usuarios.filter(usuarios => {
+            let usuarioCompleto = usuarios.Nombres + " " + usuarios.Apellidos;
+            return usuarioCompleto.toLocaleLowerCase().includes(texto) ||
+                usuarios.Descripcion.toLocaleLowerCase().includes(texto) ||
+                usuarios.Direccion.toLocaleLowerCase().includes(texto) ||
+                usuarios.RedSocial.toLocaleLowerCase().includes(texto);
+        });
+    }
+};
+FiltroVeterinariosPipe = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({
+        name: 'filtroVeterinarios'
+    })
+], FiltroVeterinariosPipe);
+
+
+
+/***/ }),
+
 /***/ "./src/app/pipes/pipes.module.ts":
 /*!***************************************!*\
   !*** ./src/app/pipes/pipes.module.ts ***!
@@ -787,6 +826,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _filtro_anuncio_pipe__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./filtro-anuncio.pipe */ "./src/app/pipes/filtro-anuncio.pipe.ts");
 /* harmony import */ var _filtro_comentarios_pipe__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./filtro-comentarios.pipe */ "./src/app/pipes/filtro-comentarios.pipe.ts");
 /* harmony import */ var _filtro_adopcion_pipe__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./filtro-adopcion.pipe */ "./src/app/pipes/filtro-adopcion.pipe.ts");
+/* harmony import */ var _filtro_veterinarios_pipe__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./filtro-veterinarios.pipe */ "./src/app/pipes/filtro-veterinarios.pipe.ts");
+
 
 
 
@@ -799,8 +840,8 @@ let PipesModule = class PipesModule {
 };
 PipesModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_filtro_curso_pipe__WEBPACK_IMPORTED_MODULE_2__["FiltroCursoPipe"], _filtro_usuario_pipe__WEBPACK_IMPORTED_MODULE_3__["FiltroUsuarioPipe"], _filtro_publicacion_pipe__WEBPACK_IMPORTED_MODULE_4__["FiltroPublicacionPipe"], _filtro_anuncio_pipe__WEBPACK_IMPORTED_MODULE_5__["FiltroAnuncioPipe"], _filtro_comentarios_pipe__WEBPACK_IMPORTED_MODULE_6__["FiltroComentariosPipe"], _filtro_adopcion_pipe__WEBPACK_IMPORTED_MODULE_7__["FiltroAdopcionPipe"]],
-        exports: [_filtro_curso_pipe__WEBPACK_IMPORTED_MODULE_2__["FiltroCursoPipe"], _filtro_usuario_pipe__WEBPACK_IMPORTED_MODULE_3__["FiltroUsuarioPipe"], _filtro_publicacion_pipe__WEBPACK_IMPORTED_MODULE_4__["FiltroPublicacionPipe"], _filtro_anuncio_pipe__WEBPACK_IMPORTED_MODULE_5__["FiltroAnuncioPipe"], _filtro_comentarios_pipe__WEBPACK_IMPORTED_MODULE_6__["FiltroComentariosPipe"], _filtro_adopcion_pipe__WEBPACK_IMPORTED_MODULE_7__["FiltroAdopcionPipe"]]
+        declarations: [_filtro_curso_pipe__WEBPACK_IMPORTED_MODULE_2__["FiltroCursoPipe"], _filtro_usuario_pipe__WEBPACK_IMPORTED_MODULE_3__["FiltroUsuarioPipe"], _filtro_publicacion_pipe__WEBPACK_IMPORTED_MODULE_4__["FiltroPublicacionPipe"], _filtro_anuncio_pipe__WEBPACK_IMPORTED_MODULE_5__["FiltroAnuncioPipe"], _filtro_comentarios_pipe__WEBPACK_IMPORTED_MODULE_6__["FiltroComentariosPipe"], _filtro_adopcion_pipe__WEBPACK_IMPORTED_MODULE_7__["FiltroAdopcionPipe"], _filtro_veterinarios_pipe__WEBPACK_IMPORTED_MODULE_8__["FiltroVeterinariosPipe"]],
+        exports: [_filtro_curso_pipe__WEBPACK_IMPORTED_MODULE_2__["FiltroCursoPipe"], _filtro_usuario_pipe__WEBPACK_IMPORTED_MODULE_3__["FiltroUsuarioPipe"], _filtro_publicacion_pipe__WEBPACK_IMPORTED_MODULE_4__["FiltroPublicacionPipe"], _filtro_anuncio_pipe__WEBPACK_IMPORTED_MODULE_5__["FiltroAnuncioPipe"], _filtro_comentarios_pipe__WEBPACK_IMPORTED_MODULE_6__["FiltroComentariosPipe"], _filtro_adopcion_pipe__WEBPACK_IMPORTED_MODULE_7__["FiltroAdopcionPipe"], _filtro_veterinarios_pipe__WEBPACK_IMPORTED_MODULE_8__["FiltroVeterinariosPipe"]]
     })
 ], PipesModule);
 
@@ -1353,6 +1394,65 @@ PublicidadService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         providedIn: 'root'
     })
 ], PublicidadService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/veterinarios.service.ts":
+/*!**************************************************!*\
+  !*** ./src/app/services/veterinarios.service.ts ***!
+  \**************************************************/
+/*! exports provided: VeterinariosService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VeterinariosService", function() { return VeterinariosService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! angularfire2/firestore */ "./node_modules/angularfire2/firestore/index.js");
+/* harmony import */ var angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+
+
+
+
+let VeterinariosService = class VeterinariosService {
+    constructor(firestore) {
+        this.usuariosCollection = firestore.collection('Veterinarios');
+        this.usuarios = this.usuariosCollection.snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(actions => {
+            return actions.map(a => {
+                const data = a.payload.doc.data();
+                const id = a.payload.doc.id;
+                return Object.assign({ id }, data);
+            });
+        }));
+    }
+    getUsuarios() {
+        return this.usuarios;
+    }
+    getUsuario(id) {
+        return this.usuariosCollection.doc(id).valueChanges();
+    }
+    addUsuario(id, Usuarios) {
+        return this.usuariosCollection.doc(id).set(Object.assign({}, Usuarios));
+    }
+    updateUsuario(id, Usuarios) {
+        return this.usuariosCollection.doc(id).update(Object.assign({}, Usuarios));
+    }
+    removeUsuario(id) {
+        return this.usuariosCollection.doc(id).delete();
+    }
+};
+VeterinariosService.ctorParameters = () => [
+    { type: angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"] }
+];
+VeterinariosService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], VeterinariosService);
 
 
 

@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<ion-header >\n  <ion-toolbar>\n\n    <ion-segment color=\"tertiary\" value=\"adopcion\" >\n\n\n      <ion-segment-button value=\"publicaciones\" [routerLink]=\"['/publicaciones']\" routerDirection=\"root\">\n        <ion-icon name=\"newspaper-outline\" size=\"large\"></ion-icon> \n        <ion-label style=\"font-size: 14;\">Publicaciones</ion-label>\n      </ion-segment-button>\n      \n      <ion-segment-button value=\"cursos\" [routerLink]=\"['/cursos']\" routerDirection=\"root\">\n        <ion-icon name=\"library-outline\" size=\"large\"></ion-icon> <ion-label style=\"font-size: 14px;\">Cursos</ion-label>\n      </ion-segment-button>\n    \n    \n      <ion-segment-button value=\"perfil\" [routerLink]=\"['/perfil']\" routerDirection=\"root\">\n        <ion-icon name=\"person-circle-outline\" size=\"large\"></ion-icon> <ion-label style=\"font-size: 12px;\">Perfil</ion-label>\n      </ion-segment-button>\n\n      <ion-segment-button value=\"adopcion\" [routerLink]=\"['/adopcion']\" routerDirection=\"root\">\n        <ion-icon name=\"paw-outline\" size=\"large\"></ion-icon> <ion-label style=\"font-size: 12px;\">Adopcion</ion-label>\n      </ion-segment-button>\n\n    </ion-segment>\n\n  </ion-toolbar>\n\n</ion-header>\n\n<ion-content>\n\n  <ion-toolbar>\n\n\n  \n    <ion-segment color=\"tertiary\" value=\"veterinarios\">\n\n      \n      <ion-segment-button value=\"mascotas\" [routerLink]=\"['/adopcion']\" routerDirection=\"root\">\n        <ion-icon name=\"fish-outline\" size=\"large\"></ion-icon> <ion-label>Mascotas</ion-label>\n      </ion-segment-button>\n  \n      <ion-segment-button value=\"veterinarios\" [routerLink]=\"['/veterinarios']\" routerDirection=\"root\">\n        <ion-icon name=\"heart-circle-outline\" size=\"large\"></ion-icon> <ion-label>Veterinarios</ion-label>\n      </ion-segment-button>\n    </ion-segment>\n  \n  </ion-toolbar>\n\n  <ng-container>\n\n    <div style=\"margin-top: 50px;\" align='center'> \n      <ion-text color=\"medium\">\n\n        <img src=\"https://firebasestorage.googleapis.com/v0/b/taskyapp01.appspot.com/o/iconos%2FproxVeterinario.png?alt=media&token=44539886-4de0-4b08-9786-4ee4f7175e2c\" style=\"width: 55%; height:62%;\" alet=\"foto\">\n        \n        <p style=\"font-size: 25px;\">Próximamente!</p>\n      </ion-text>  \n    </div>\n\n  </ng-container>\n\n\n\n</ion-content>\n\n ";
+      __webpack_exports__["default"] = "<ion-header >\r\n  <ion-toolbar>\r\n\r\n    <ion-segment color=\"tertiary\" value=\"adopcion\" >\r\n\r\n\r\n      <ion-segment-button value=\"publicaciones\" [routerLink]=\"['/publicaciones']\" routerDirection=\"root\">\r\n        <ion-icon name=\"newspaper-outline\" size=\"large\"></ion-icon> \r\n        <ion-label style=\"font-size: 14;\">Publicaciones</ion-label>\r\n      </ion-segment-button>\r\n      \r\n      <ion-segment-button value=\"cursos\" [routerLink]=\"['/cursos']\" routerDirection=\"root\">\r\n        <ion-icon name=\"library-outline\" size=\"large\"></ion-icon> <ion-label style=\"font-size: 14px;\">Cursos</ion-label>\r\n      </ion-segment-button>\r\n    \r\n    \r\n      <ion-segment-button value=\"perfil\" [routerLink]=\"['/perfil']\" routerDirection=\"root\">\r\n        <ion-icon name=\"person-circle-outline\" size=\"large\"></ion-icon> <ion-label style=\"font-size: 12px;\">Perfil</ion-label>\r\n      </ion-segment-button>\r\n\r\n      <ion-segment-button value=\"adopcion\" [routerLink]=\"['/adopcion']\" routerDirection=\"root\">\r\n        <ion-icon name=\"paw-outline\" size=\"large\"></ion-icon> <ion-label style=\"font-size: 12px;\">Adopcion</ion-label>\r\n      </ion-segment-button>\r\n\r\n    </ion-segment>\r\n\r\n  </ion-toolbar>\r\n\r\n</ion-header>\r\n\r\n<ion-content>\r\n\r\n  <ion-toolbar>\r\n\r\n\r\n  \r\n    <ion-segment color=\"tertiary\" value=\"veterinarios\">\r\n\r\n      \r\n      <ion-segment-button value=\"mascotas\" [routerLink]=\"['/adopcion']\" routerDirection=\"root\">\r\n        <ion-icon name=\"fish-outline\" size=\"large\"></ion-icon> <ion-label>Mascotas</ion-label>\r\n      </ion-segment-button>\r\n  \r\n      <ion-segment-button value=\"veterinarios\" [routerLink]=\"['/veterinarios']\" routerDirection=\"root\">\r\n        <ion-icon name=\"heart-circle-outline\" size=\"large\"></ion-icon> <ion-label>Veterinarios</ion-label>\r\n      </ion-segment-button>\r\n    </ion-segment>\r\n  \r\n  </ion-toolbar>\r\n\r\n  \r\n  <ion-searchbar\r\n    color=\"light\" \r\n    placeholder = \"Buscar Veterinario...\"\r\n    animated\r\n\r\n    (ionChange)=\"buscar($event)\">\r\n    </ion-searchbar>\r\n\r\n\r\n  <ng-container *ngIf=\"!getDatos()\">     \r\n      <ion-item *ngFor=\"let veterinario of veterinarios | filtroVeterinarios: textoBuscar\" (click)='aumentarVisita(veterinario.id,veterinario)'>\r\n\r\n        <ion-avatar slot=\"start\">\r\n          <img src=\"{{veterinario.Foto}}\">\r\n        </ion-avatar>\r\n\r\n        <!-- <ion-thumbnail slot=\"start\" slot=\"start\">\r\n          <img src=\"{{usuario.FotoPerfil}}\" alet=\"foto\">\r\n        </ion-thumbnail> -->\r\n        <ion-card-title>\r\n          {{veterinario.Nombres}} {{veterinario.Apellidos}}\r\n        </ion-card-title>\r\n\r\n          <ion-list fill=\"outline\" slot='end'>\r\n            <ion-item fill=\"outline\">\r\n              <ion-icon name=\"thumbs-up-outline\" ></ion-icon><ion-label style=\"font-size: 12;margin-left: 7.5px;\" >{{veterinario.Like}}</ion-label>\r\n            </ion-item>\r\n            <ion-item fill=\"outline\">\r\n              <ion-icon name=\"thumbs-down-outline\" ></ion-icon><label style=\"font-size: 12;margin-left: 7.5px;\" >{{veterinario.Dislike}}</label>\r\n            </ion-item>\r\n            \r\n          </ion-list>\r\n          <!-- <div slot=\"end\" style=\"align-items: center;justify-content: center;\"><ion-icon name=\"eye-outline\" ></ion-icon><label style=\"font-size: 12;margin-left: 7.5px;\" >{{ayudante.Visitas}}</label></div> -->\r\n          \r\n        \r\n      </ion-item>\r\n\r\n  </ng-container>\r\n\r\n  <ng-container *ngIf=\"getDatos()\">\r\n\r\n    <div style=\"margin-top: 50px;\" align='center'> \r\n      <ion-text color=\"medium\">\r\n\r\n        <img src=\"https://firebasestorage.googleapis.com/v0/b/taskyapp01.appspot.com/o/iconos%2FproxVeterinario.png?alt=media&token=44539886-4de0-4b08-9786-4ee4f7175e2c\" style=\"width: 55%; height:62%;\" alet=\"foto\">\r\n        \r\n        <p style=\"font-size: 25px;\">Próximamente!</p>\r\n      </ion-text>  \r\n    </div>\r\n \r\n  </ng-container>\r\n\r\n\r\n\r\n</ion-content>\r\n\r\n ";
       /***/
     },
 
@@ -147,13 +147,19 @@
       var _veterinarios_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! ./veterinarios.page */
       "./src/app/folder/veterinarios/veterinarios.page.ts");
+      /* harmony import */
+
+
+      var src_app_pipes_pipes_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! src/app/pipes/pipes.module */
+      "./src/app/pipes/pipes.module.ts");
 
       var VeterinariosPageModule = function VeterinariosPageModule() {
         _classCallCheck(this, VeterinariosPageModule);
       };
 
       VeterinariosPageModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"], _veterinarios_routing_module__WEBPACK_IMPORTED_MODULE_5__["VeterinariosPageRoutingModule"]],
+        imports: [src_app_pipes_pipes_module__WEBPACK_IMPORTED_MODULE_7__["PipesModule"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"], _veterinarios_routing_module__WEBPACK_IMPORTED_MODULE_5__["VeterinariosPageRoutingModule"]],
         declarations: [_veterinarios_page__WEBPACK_IMPORTED_MODULE_6__["VeterinariosPage"]]
       })], VeterinariosPageModule);
       /***/
@@ -210,22 +216,104 @@
       var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
       /*! @angular/core */
       "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      /* harmony import */
+
+
+      var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/router */
+      "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+      /* harmony import */
+
+
+      var src_app_services_veterinarios_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! src/app/services/veterinarios.service */
+      "./src/app/services/veterinarios.service.ts");
+      /* harmony import */
+
+
+      var src_app_services_usuario_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! src/app/services/usuario.service */
+      "./src/app/services/usuario.service.ts");
+      /* harmony import */
+
+
+      var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! @ionic/angular */
+      "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
 
       var VeterinariosPage = /*#__PURE__*/function () {
-        function VeterinariosPage() {
+        function VeterinariosPage(activateRoute, veterinariosService, usuarioService, alertCtrt, router) {
           _classCallCheck(this, VeterinariosPage);
+
+          this.activateRoute = activateRoute;
+          this.veterinariosService = veterinariosService;
+          this.usuarioService = usuarioService;
+          this.alertCtrt = alertCtrt;
+          this.router = router;
+          this.usuarios = [];
+          this.veterinarios = [];
+          this.desabilitar = false;
+          this.resultado = [];
+          this.textoBuscar = '';
         }
 
         _createClass(VeterinariosPage, [{
           key: "ngOnInit",
-          value: function ngOnInit() {}
+          value: function ngOnInit() {
+            var _this = this;
+
+            this.rol = localStorage.getItem('Rol');
+            this.miId = localStorage.getItem('userId');
+            this.veterinariosService.getUsuarios().subscribe(function (res) {
+              return _this.veterinarios = res;
+            });
+            this.usuarioService.getUsuarios().subscribe(function (res) {
+              return _this.usuarios = res;
+            });
+          }
+        }, {
+          key: "getDatos",
+          value: function getDatos() {
+            // this.ayudanteService.getAyudanteMateria(this.id).subscribe(res=> this.ayudantes = res);
+            // console.log(this.ayudantes)
+            for (var i = 0; i < this.veterinarios.length; i++) {
+              return false;
+            }
+
+            return true;
+          }
+        }, {
+          key: "aumentarVisita",
+          value: function aumentarVisita(id, veterinario) {
+            veterinario.Visitas = veterinario.Visitas + 1; //console.log("fff", publicacion.Visitas)
+            //[routerLink]="['/curso-detalle-anuncio',publicacion.id]"
+
+            this.veterinariosService.updateUsuario(id, veterinario);
+            this.router.navigate(['/veterinario-detalle', id]);
+          }
+        }, {
+          key: "buscar",
+          value: function buscar(event) {
+            var texto = event.target.value;
+            this.textoBuscar = texto;
+          }
         }]);
 
         return VeterinariosPage;
       }();
 
       VeterinariosPage.ctorParameters = function () {
-        return [];
+        return [{
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
+        }, {
+          type: src_app_services_veterinarios_service__WEBPACK_IMPORTED_MODULE_3__["VeterinariosService"]
+        }, {
+          type: src_app_services_usuario_service__WEBPACK_IMPORTED_MODULE_4__["UsuarioService"]
+        }, {
+          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["AlertController"]
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+        }];
       };
 
       VeterinariosPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({

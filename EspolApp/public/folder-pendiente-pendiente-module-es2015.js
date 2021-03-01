@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\r\n\r\n<ion-content>\r\n\r\n<div align='center' style=\"margin-bottom: 25px;margin-top: 35%;width: 85%;margin-left: 7.5%;\">\r\n \r\n    <ion-label style=\"font-size:21px;text-align: center;margin:auto\">Sus datos están siendo verificados! En las siguientes horas le activaremos su cuenta :)</ion-label>\r\n\r\n\r\n</div>\r\n\r\n<ion-img style=\"margin:auto;width: 62%;margin-top:15px;\" src=\"../../assets/image1.png\" alt=\"hola\"></ion-img>\r\n\r\n<div align=\"center\" style=\"margin-top:31px\">\r\n  <ion-button style=\"margin:auto;\" (click)=\"logOutUser()\">Volver</ion-button>\r\n</div>\r\n\r\n\r\n\r\n</ion-content>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("\r\n\r\n<ion-content>\r\n\r\n<div align='center' style=\"margin-bottom: 10px;margin-top: 75px;width: 85%;margin-left: 7.5%;\">\r\n \r\n    <ion-label style=\"font-size:19.5px;text-align: center;margin:auto\">Estamos verificando su cuenta!</ion-label>\r\n\r\n\r\n</div>\r\n\r\n<ion-img style=\"margin:auto;width: 225px;height: 350px;margin-top:5px;\" src=\"https://firebasestorage.googleapis.com/v0/b/taskyapp01.appspot.com/o/iconos%2Finspector.jpg?alt=media&token=df26d9dd-ffad-4f7a-bcef-b33c8c0c6584\" alt=\"hola\"></ion-img>\r\n\r\n<div align=\"center\" style=\"margin-top:15px\">\r\n  <ion-button style=\"margin:auto;\" (click)=\"logOutUser()\">Volver</ion-button>\r\n</div>\r\n\r\n\r\n\r\n</ion-content>\r\n");
 
 /***/ }),
 

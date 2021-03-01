@@ -498,11 +498,23 @@ const routes = [
     },
     {
         path: 'veterinarios',
-        loadChildren: () => __webpack_require__.e(/*! import() | folder-veterinarios-veterinarios-module */ "folder-veterinarios-veterinarios-module").then(__webpack_require__.bind(null, /*! ./folder/veterinarios/veterinarios.module */ "./src/app/folder/veterinarios/veterinarios.module.ts")).then(m => m.VeterinariosPageModule)
+        loadChildren: () => Promise.all(/*! import() | folder-veterinarios-veterinarios-module */[__webpack_require__.e("common"), __webpack_require__.e("folder-veterinarios-veterinarios-module")]).then(__webpack_require__.bind(null, /*! ./folder/veterinarios/veterinarios.module */ "./src/app/folder/veterinarios/veterinarios.module.ts")).then(m => m.VeterinariosPageModule),
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]]
     },
     {
         path: 'detalle-veterinarios',
-        loadChildren: () => __webpack_require__.e(/*! import() | folder-detalle-veterinarios-detalle-veterinarios-module */ "folder-detalle-veterinarios-detalle-veterinarios-module").then(__webpack_require__.bind(null, /*! ./folder/detalle-veterinarios/detalle-veterinarios.module */ "./src/app/folder/detalle-veterinarios/detalle-veterinarios.module.ts")).then(m => m.DetalleVeterinariosPageModule)
+        loadChildren: () => __webpack_require__.e(/*! import() | folder-detalle-veterinarios-detalle-veterinarios-module */ "folder-detalle-veterinarios-detalle-veterinarios-module").then(__webpack_require__.bind(null, /*! ./folder/detalle-veterinarios/detalle-veterinarios.module */ "./src/app/folder/detalle-veterinarios/detalle-veterinarios.module.ts")).then(m => m.DetalleVeterinariosPageModule),
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]]
+    },
+    {
+        path: 'veterinario-detalle/:id',
+        loadChildren: () => Promise.all(/*! import() | folder-veterinario-detalle-veterinario-detalle-module */[__webpack_require__.e("common"), __webpack_require__.e("folder-veterinario-detalle-veterinario-detalle-module")]).then(__webpack_require__.bind(null, /*! ./folder/veterinario-detalle/veterinario-detalle.module */ "./src/app/folder/veterinario-detalle/veterinario-detalle.module.ts")).then(m => m.VeterinarioDetallePageModule),
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]]
+    },
+    {
+        path: 'comentario-veterinario/:id',
+        loadChildren: () => Promise.all(/*! import() | folder-comentario-veterinario-comentario-veterinario-module */[__webpack_require__.e("common"), __webpack_require__.e("folder-comentario-veterinario-comentario-veterinario-module")]).then(__webpack_require__.bind(null, /*! ./folder/comentario-veterinario/comentario-veterinario.module */ "./src/app/folder/comentario-veterinario/comentario-veterinario.module.ts")).then(m => m.ComentarioVeterinarioPageModule),
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]]
     }
 ];
 let AppRoutingModule = class AppRoutingModule {

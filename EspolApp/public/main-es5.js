@@ -653,14 +653,15 @@
       }, {
         path: 'veterinarios',
         loadChildren: function loadChildren() {
-          return __webpack_require__.e(
+          return Promise.all(
           /*! import() | folder-veterinarios-veterinarios-module */
-          "folder-veterinarios-veterinarios-module").then(__webpack_require__.bind(null,
+          [__webpack_require__.e("common"), __webpack_require__.e("folder-veterinarios-veterinarios-module")]).then(__webpack_require__.bind(null,
           /*! ./folder/veterinarios/veterinarios.module */
           "./src/app/folder/veterinarios/veterinarios.module.ts")).then(function (m) {
             return m.VeterinariosPageModule;
           });
-        }
+        },
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]]
       }, {
         path: 'detalle-veterinarios',
         loadChildren: function loadChildren() {
@@ -671,7 +672,32 @@
           "./src/app/folder/detalle-veterinarios/detalle-veterinarios.module.ts")).then(function (m) {
             return m.DetalleVeterinariosPageModule;
           });
-        }
+        },
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]]
+      }, {
+        path: 'veterinario-detalle/:id',
+        loadChildren: function loadChildren() {
+          return Promise.all(
+          /*! import() | folder-veterinario-detalle-veterinario-detalle-module */
+          [__webpack_require__.e("common"), __webpack_require__.e("folder-veterinario-detalle-veterinario-detalle-module")]).then(__webpack_require__.bind(null,
+          /*! ./folder/veterinario-detalle/veterinario-detalle.module */
+          "./src/app/folder/veterinario-detalle/veterinario-detalle.module.ts")).then(function (m) {
+            return m.VeterinarioDetallePageModule;
+          });
+        },
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]]
+      }, {
+        path: 'comentario-veterinario/:id',
+        loadChildren: function loadChildren() {
+          return Promise.all(
+          /*! import() | folder-comentario-veterinario-comentario-veterinario-module */
+          [__webpack_require__.e("common"), __webpack_require__.e("folder-comentario-veterinario-comentario-veterinario-module")]).then(__webpack_require__.bind(null,
+          /*! ./folder/comentario-veterinario/comentario-veterinario.module */
+          "./src/app/folder/comentario-veterinario/comentario-veterinario.module.ts")).then(function (m) {
+            return m.ComentarioVeterinarioPageModule;
+          });
+        },
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_4__["AuthGuard"]]
       }];
 
       var AppRoutingModule = function AppRoutingModule() {
